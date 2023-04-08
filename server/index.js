@@ -11,6 +11,7 @@ app.use(cors());
 
 const post = require("./routes/api/posts");
 app.use("/api/posts", post);
+app.use("/uploads", express.static("uploads"));
 const port = process.env.port || 5000;
 
 app.listen(port, () => {
