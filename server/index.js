@@ -12,7 +12,11 @@ app.use(cors());
 const post = require("./routes/api/posts");
 const auth = require("./routes/api/auth");
 app.use("/api/posts", post);
+<<<<<<< HEAD
 app.use("/api", auth);
+=======
+app.use("/api/posts", auth);
+>>>>>>> travel-test
 const country = require("./routes/api/countriesVisited");
 //app.use('/api/countriesVisited',country)
 app.use("/uploads", express.static("uploads"));

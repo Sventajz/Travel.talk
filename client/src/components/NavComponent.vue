@@ -9,11 +9,35 @@
         <li>Profile name</li>
         <li>about</li>
       </ul> -->
+<<<<<<< HEAD
+=======
+      <button class="button-36" v-on:click="logout()">Log out</button>
+>>>>>>> travel-test
     </div>
   </nav>
 </template>
 
+<<<<<<< HEAD
 <script></script>
+=======
+<script>
+export default {
+  name: "navComponent",
+  async created() {
+    if (localStorage.getItem("token") === null) {
+      this.$router.push("/");
+    }
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userName");
+      this.$router.push("/");
+    },
+  },
+};
+</script>
+>>>>>>> travel-test
 <style>
 nav {
   border-bottom: 1px solid #adadad;
@@ -41,4 +65,26 @@ ul {
 li {
   margin: 10px;
 }
+<<<<<<< HEAD
+=======
+.button-36 {
+  background-color: rgb(251, 251, 125);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: bold;
+  height: 3rem;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all 0.5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+>>>>>>> travel-test
 </style>
