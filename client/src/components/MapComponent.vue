@@ -5,7 +5,7 @@ import axios from "axios";
 import { computed, onMounted, ref, watch } from "vue";
 //import { geoCode } from '../geocode';
 import { useGeolocation } from "../useGeolocation";
-const GOOGLE_MAPS_API_KEY = "AIzaSyCpaXgq5EN9sDtaNwj6jX7DzhRyRGmPYB4";
+const GOOGLE_MAPS_API_KEY = "AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg";
 const url = "http://localhost:5000/api/posts";
 
 export default {
@@ -95,12 +95,13 @@ function geoCode(visited) {
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: visited,
-          key: "AIzaSyCpaXgq5EN9sDtaNwj6jX7DzhRyRGmPYB4",
+          key: "AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg",
         },
       })
       .then(function (response) {
         var location = response.data.results[0].geometry.location;
         var locationString = JSON.stringify(location);
+        console.log('this is location string', locationString)
         resolve(locationString);
       })
       .catch(function (error) {

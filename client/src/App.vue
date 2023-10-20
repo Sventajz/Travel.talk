@@ -1,10 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div>
-    <title>Travel.talk</title>
-    <div class="aboutContent"></div>
-    <PostComponent />
-=======
   <navcomponent></navcomponent>
   <title>Travel.talk</title>
   <div class="router-wrapper">
@@ -13,18 +7,11 @@
         <component :is="Component" :key="$route.path"></component>
       </transition>
     </router-view>
->>>>>>> travel-test
   </div>
 </template>
 
 <script>
 // import AboutComponent from "./components/AboutComponent.vue";
-<<<<<<< HEAD
-
-import PostComponent from "./components/PostComponent.vue";
-// import hello from "./components/HelloWorld.vue";
-=======
->>>>>>> travel-test
 
 // import PostComponent from "./components/PostComponent.vue";
 // import hello from "./components/HelloWorld.vue";
@@ -32,14 +19,9 @@ import navcomponent from "./components/NavComponent.vue";
 export default {
   name: "App",
   components: {
-<<<<<<< HEAD
-    PostComponent,
-    // AboutComponent,
-=======
     // PostComponent,
     // AboutComponent
     navcomponent,
->>>>>>> travel-test
   },
   data() {
     return {
@@ -64,10 +46,6 @@ export default {
   text-align: center;
   color: #151516;
   height: 100vh;
-<<<<<<< HEAD
-  background-color: #faf5f5;
-  margin: 0;
-=======
   background-color: #9adee2 53%;
   margin: 0;
   -moz-box-sizing: border-box;
@@ -77,7 +55,6 @@ html {
   background-color: #9adee2 53%;
   -moz-box-sizing: border-box;
   overflow: hidden;
->>>>>>> travel-test
 }
 
 .mainContent {
@@ -95,11 +72,7 @@ html {
 body {
   height: 100vh;
   margin: 0em;
-<<<<<<< HEAD
-  background-color: #faf5f5;
-=======
   background-color: #9adee2 53%;
->>>>>>> travel-test
 }
 
 .mapContent {
@@ -116,8 +89,6 @@ button {
   color: white;
   border-radius: 9px;
   height: 35px;
-<<<<<<< HEAD
-=======
 }
 /*
   Enter and leave animations can use different
@@ -132,6 +103,5 @@ button {
 .slide-leave-to {
   opacity: 0;
   transform: translateX(-99%);
->>>>>>> travel-test
 }
 </style>

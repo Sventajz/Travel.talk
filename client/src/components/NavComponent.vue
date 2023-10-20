@@ -9,17 +9,11 @@
         <li>Profile name</li>
         <li>about</li>
       </ul> -->
-<<<<<<< HEAD
-=======
       <button class="button-36" v-on:click="logout()">Log out</button>
->>>>>>> travel-test
     </div>
   </nav>
 </template>
 
-<<<<<<< HEAD
-<script></script>
-=======
 <script>
 export default {
   name: "navComponent",
@@ -37,7 +31,6 @@ export default {
   },
 };
 </script>
->>>>>>> travel-test
 <style>
 nav {
   border-bottom: 1px solid #adadad;
@@ -65,8 +58,6 @@ ul {
 li {
   margin: 10px;
 }
-<<<<<<< HEAD
-=======
 .button-36 {
   background-color: rgb(251, 251, 125);
   border-radius: 8px;
@@ -86,5 +77,4 @@ li {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
->>>>>>> travel-test
 </style>

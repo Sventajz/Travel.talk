@@ -1,14 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import App from "../App.vue";
-<<<<<<< HEAD
-
-const routes = [
-  //   {
-  //     path: "/",
-  //     name: "App",
-  //     component: () => import("../components/HelloWorld.vue"),
-  //   },
-=======
 import landing from "../components/LandingComponent.vue";
 import login from "../components/LoginComponent.vue";
 import postcomp from "../components/PostComponent.vue";
@@ -24,14 +15,11 @@ const routes = [
     name: "Signup",
     component: signup,
   },
->>>>>>> travel-test
   {
     path: "/app",
     name: "app",
     component: App,
   },
-<<<<<<< HEAD
-=======
   {
     path: "/login",
     name: "LoginComponent",
@@ -42,7 +30,6 @@ const routes = [
     name: "PostComponent",
     component: postcomp,
   },
->>>>>>> travel-test
 ];
 
 const router = createRouter({

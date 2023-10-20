@@ -4,10 +4,6 @@
       <MapComponent v-bind:key="componentKey"></MapComponent>
     </div>
     <div class="container">
-<<<<<<< HEAD
-      <h1>Lastest Posts</h1>
-=======
->>>>>>> travel-test
       <button @click="open = true">Add a new post!</button>
       <Teleport to="body">
         <div v-if="open" class="modal">
@@ -51,16 +47,12 @@
       <p class="error" v-if="error">{{ error }}</p>
       <div
         class="posts-container"
-<<<<<<< HEAD
-        style="overflow: scroll; height: 700px; margin: auto"
-=======
         style="
           overflow: scroll;
           height: 500px;
           margin: auto;
           box-sizing: border-box;
         "
->>>>>>> travel-test
       >
         <div
           class="post"
@@ -71,19 +63,11 @@
           v-bind:place="place"
           v-bind:key="post._id"
         >
-<<<<<<< HEAD
-          {{
-            `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}`
-          }}
-          <div id="location">
-            <h3>User: {{ post.userName }}</h3>
-=======
           <div class="post-info">
             {{
               `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}`
             }}
             <p>User: {{ post.userName }}</p>
->>>>>>> travel-test
 
             <p>Location: {{ post.place }}</p>
           </div>
@@ -115,12 +99,9 @@ export default {
     };
   },
   async created() {
-<<<<<<< HEAD
-=======
     if (localStorage.getItem("token") === null) {
       this.$router.push("/");
     }
->>>>>>> travel-test
     try {
       this.posts = await PostService.getPosts();
     } catch (err) {
@@ -163,31 +144,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-<<<<<<< HEAD
-#location {
-  /* display: flex;
-  justify-content: center;
-  margin: auto;
-  align-items: center;
-  text-align: center; */
-}
-
-=======
->>>>>>> travel-test
 .postcont {
   display: grid;
   position: absolute;
   left: 10%;
   grid-template-columns: auto auto auto;
   grid-template-rows: 600px 300px;
-<<<<<<< HEAD
-  gap: 10px;
-  background-color: white;
-  margin-top: 10px;
-  width: 80vw;
-  box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
-  border-radius: 10px;
-=======
   height: calc(100% - 100px);
   gap: 10px;
   background: #90ced1 53%;
@@ -196,7 +158,6 @@ export default {
   box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
   -moz-box-sizing: border-box;
   box-sizing: border-box;
->>>>>>> travel-test
 }
 
 .mapcont {
@@ -210,11 +171,8 @@ div.container {
   width: 500px;
   margin: auto;
   margin-top: 20px;
-<<<<<<< HEAD
-=======
   height: 90%;
   overflow: hidden;
->>>>>>> travel-test
 }
 
 p.error {
@@ -233,13 +191,6 @@ div.post {
   border-radius: 10px;
   margin: auto;
   color: black;
-<<<<<<< HEAD
-  background-color: whitesmoke;
-  box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
-  margin-bottom: 15px;
-  width: 450px;
-  height: 360px;
-=======
 
   background-color: #3c8086;
   box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
@@ -248,7 +199,6 @@ div.post {
   height: 300px;
   box-sizing: border-box;
   margin-bottom: 40px;
->>>>>>> travel-test
 }
 
 div.created-at {
@@ -263,21 +213,14 @@ p.text {
   padding: 8px;
   font-size: 17px;
   margin-bottom: 0;
-<<<<<<< HEAD
-  background-color: rgb(237, 221, 221);
-=======
   background: #9adee2 53%;
->>>>>>> travel-test
   border-top: 1px solid rgb(122, 120, 120);
   border-bottom: 1px solid rgb(122, 120, 120);
   border-radius: 12px;
   margin: 8px;
   height: 160px;
   word-wrap: break-word;
-<<<<<<< HEAD
-=======
   box-sizing: border-box;
->>>>>>> travel-test
 }
 
 .modal {
@@ -321,18 +264,6 @@ p.text {
 }
 
 button {
-<<<<<<< HEAD
-  background: rgb(69, 181, 140);
-  background: linear-gradient(
-    90deg,
-    rgba(69, 181, 140, 1) 0%,
-    rgba(156, 221, 175, 1) 35%,
-    rgba(163, 246, 225, 1) 100%
-  );
-  color: black;
-  border: none;
-  font-weight: bold;
-=======
   background-color: rgb(251, 251, 125);
   border-radius: 8px;
   border-style: none;
@@ -361,6 +292,5 @@ button {
 .post-info > * {
   margin-left: 8px;
   margin-right: 8px;
->>>>>>> travel-test
 }
 </style>
