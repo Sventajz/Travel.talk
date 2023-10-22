@@ -4,6 +4,7 @@ import landing from "../components/LandingComponent.vue";
 import login from "../components/LoginComponent.vue";
 import postcomp from "../components/PostComponent.vue";
 import signup from "../components/Signup.vue";
+
 const routes = [
   {
     path: "/",

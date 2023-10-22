@@ -18,7 +18,8 @@ const country = require("./routes/api/countriesVisited");
 //app.use('/api/countriesVisited',country)
 app.use("/uploads", express.static("uploads"));
 const port = process.env.port || 5000;
-
+require('dotenv').config()
+console.log('this is env file', process.env.GOOGLE_API)
 app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
 });

@@ -1,14 +1,19 @@
 <script>
+
 /* eslint-disable no-undef */
 import { Loader } from "@googlemaps/js-api-loader";
 import axios from "axios";
 import { computed, onMounted, ref, watch } from "vue";
+
 //import { geoCode } from '../geocode';
 import { useGeolocation } from "../useGeolocation";
-const GOOGLE_MAPS_API_KEY = "AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg";
+const GOOGLE_MAPS_API_KEY = 'your API key here';
 const url = "http://localhost:5000/api/posts";
 
 export default {
+  mounted(){
+    console.log(process.env.GOOGLE_API)
+  },
   setup() {
     // this function gets the posts from database
     async function getPosts() {
@@ -95,7 +100,7 @@ function geoCode(visited) {
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: visited,
-          key: "AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg",
+          key: "your API key here",
         },
       })
       .then(function (response) {

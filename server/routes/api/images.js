@@ -6,7 +6,7 @@ const app = express();
 
 // Set up MongoDB connection
 mongoose.connect(
-  "mongodb+srv://SvenTajz:CLONErepublic2@piprojekt.mnzp0np.mongodb.net/?retryWrites=true&w=majority",
+  "Your API key here",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
