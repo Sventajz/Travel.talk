@@ -30,7 +30,7 @@ router.delete("/:id", async (req, res) => {
 
 async function loadPostsCollection() {
   const client = await mongodb.MongoClient.connect(
-    "Your monkoDB key here",
+    "Your mongoDB key here",
     {
       useNewUrlParser: true,
     }
