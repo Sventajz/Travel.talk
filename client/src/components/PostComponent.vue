@@ -4,7 +4,7 @@
       <MapComponent v-bind:key="componentKey"></MapComponent>
     </div>
     <div class="container">
-      <button @click="open = true">Add a new post!</button>
+      <button class="post-btn" @click="open = true">Add a new post!</button>
       <Teleport to="body">
         <div v-if="open" class="modal">
           <div class="create-post">
@@ -68,7 +68,9 @@
           </div>
           <p class="text">{{ post.text }}</p>
 
-          <button v-on:click="deletePost(post._id)">Delete Post</button>
+          <button class="delete-btn" v-on:click="deletePost(post._id)">
+            Delete Post
+          </button>
         </div>
       </div>
     </div>
@@ -129,7 +131,7 @@ export default {
 .postcont {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100%;
+  height: calc(100vh - 50px);
   align-items: center;
 }
 
@@ -233,7 +235,8 @@ p.text {
   background-color: rgb(252, 251, 251);
 }
 
-button {
+.post-btn,
+.delete-btn {
   background-color: rgb(251, 251, 125);
   border-radius: 8px;
   border-style: none;
@@ -251,6 +254,9 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+.delete-btn:hover {
+  box-shadow: rgba(224, 223, 226, 0.5) 0 1px 30px;
 }
 
 .post-info {

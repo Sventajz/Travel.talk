@@ -50,14 +50,6 @@ nav {
   padding: 5px;
 }
 
-ul {
-  list-style-type: none;
-  display: flex;
-}
-
-li {
-  margin: 10px;
-}
 .button-36 {
   background-color: rgb(251, 251, 125);
   border-radius: 8px;
@@ -76,5 +68,8 @@ li {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+.button-36:hover {
+  box-shadow: rgba(28, 28, 29, 0.5) 0 1px 30px;
 }
 </style>

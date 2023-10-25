@@ -34,7 +34,6 @@ export default {
 <style>
 #app {
   height: 100%;
-
 }
 .landing-logo {
   height: 275px;
@@ -76,7 +75,7 @@ a {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  height: 400px;
+  height: 60%;
   width: 600px;
   margin: auto;
   border-radius: 10px;

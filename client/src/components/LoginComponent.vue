@@ -27,7 +27,7 @@
             <div class="form-input">
               <button
                 type="submit"
-                class="button-36"
+                class="login-btn"
                 role="button"
                 value="Sign Up"
                 @click.prevent="login"
@@ -91,16 +91,9 @@ export default {
 .welcome-wrapper {
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
+  color: white;
   text-align: justify;
-  justify-self: left;
-  width: 100%;
-  padding-left: 4rem;
-  margin: auto;
-}
-
-#app {
-  height: 100%;
+  width: 80%;
 }
 
 .body-wrapper {
@@ -108,25 +101,6 @@ export default {
   justify-content: center;
   align-items: center;
   margin: auto;
-  height: 80vh;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 
 .login-wrapper {
@@ -134,12 +108,12 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 350px;
+  height: 60%;
   width: 400px;
   margin: auto;
   border-radius: 10px;
   background-color: #084c5e;
-  box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
+  box-shadow: 0.2em 0.2em 0.2em rgb(8, 8, 8);
 }
 
 .form-wrapper {
@@ -155,7 +129,7 @@ a {
 }
 
 /* CSS */
-.button-36 {
+.login-btn {
   background-color: rgb(251, 251, 125);
   border-radius: 8px;
   border-style: none;
@@ -175,8 +149,8 @@ a {
   touch-action: manipulation;
 }
 
-.button-36:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+.login-btn:hover {
+  box-shadow: rgba(224, 223, 226, 0.5) 0 1px 30px;
   transition-duration: 0.1s;
 }
 </style>
