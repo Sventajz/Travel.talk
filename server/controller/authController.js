@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 mongoose
   .connect(
-    "mongodb+srv://SvenTajz:CLONErepublic2@piprojekt.mnzp0np.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://SvenTajz:CLONErepublic2IMPERIAL2@piprojekt.mnzp0np.mongodb.net/?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

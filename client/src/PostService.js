@@ -35,14 +35,3 @@ class PostService {
   }
 }
 export default PostService;
-// async function getPost() {
-//   return axios
-//     .get("http://localhost:5000/api/posts")
-//     .then((response) => {
-//       console.log(response.data);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }
-// await getPost();

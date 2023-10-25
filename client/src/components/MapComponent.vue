@@ -7,7 +7,7 @@ import { computed, onMounted, ref, watch } from "vue";
 
 //import { geoCode } from '../geocode';
 import { useGeolocation } from "../useGeolocation";
-const GOOGLE_MAPS_API_KEY = 'your API key here';
+const GOOGLE_MAPS_API_KEY = 'AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg';
 const url = "http://localhost:5000/api/posts";
 
 export default {
@@ -100,7 +100,7 @@ function geoCode(visited) {
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: visited,
-          key: "your API key here",
+          key: "AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg",
         },
       })
       .then(function (response) {

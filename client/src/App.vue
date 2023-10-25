@@ -15,25 +15,19 @@
 
 // import PostComponent from "./components/PostComponent.vue";
 // import hello from "./components/HelloWorld.vue";
-import navcomponent from "./components/NavComponent.vue";
+
 export default {
   name: "App",
   components: {
     // PostComponent,
     // AboutComponent
-    navcomponent,
-  },
-  data() {
-    return {
-      componentKey: 0,
-    };
-  },
+ 
   methods: {
     forceRerender() {
       this.componentKey += 1;
     },
   },
-};
+}}
 </script>
 
 <style>
@@ -46,6 +40,9 @@ export default {
   text-align: center;
   color: #151516;
   height: 100vh;
+
+  background-color: #faf5f5;
+  margin: 0;
   background-color: #9adee2 53%;
   margin: 0;
   -moz-box-sizing: border-box;

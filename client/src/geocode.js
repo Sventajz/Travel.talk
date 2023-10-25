@@ -9,7 +9,7 @@ export function geoCode(visited) {
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: visited,
-          key: "AIzaSyCpaXgq5EN9sDtaNwj6jX7DzhRyRGmPYB4",
+          key: "AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg",
         },
       })
       .then(function (response) {
