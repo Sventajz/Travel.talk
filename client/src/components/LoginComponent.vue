@@ -101,7 +101,6 @@ export default {
 
 #app {
   height: 100%;
-  background: #9adee2 53%;
 }
 
 .body-wrapper {
@@ -139,7 +138,7 @@ a {
   width: 400px;
   margin: auto;
   border-radius: 10px;
-  background-color: #3c8086;
+  background-color: #084c5e;
   box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
 }
 

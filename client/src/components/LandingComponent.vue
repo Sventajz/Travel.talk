@@ -34,7 +34,7 @@ export default {
 <style>
 #app {
   height: 100%;
-  background: #9adee2 53%;
+
 }
 .landing-logo {
   height: 275px;
@@ -80,8 +80,8 @@ a {
   width: 600px;
   margin: auto;
   border-radius: 10px;
-  background-color: #3c8086;
-  box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
+  background-color: #084c5e;
+  box-shadow: 0.2em 0.2em 0.2em rgb(37, 37, 37);
 }
 
 .form-wrapper {

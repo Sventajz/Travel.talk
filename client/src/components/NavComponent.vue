@@ -14,7 +14,7 @@
   </nav>
 </template>
 
-<script>
+<script scoped>
 export default {
   name: "navComponent",
   async created() {

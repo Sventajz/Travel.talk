@@ -1,6 +1,7 @@
 <template>
-  <navcomponent></navcomponent>
+
   <title>Travel.talk</title>
+  <NavComponent></NavComponent>
   <div class="router-wrapper">
     <router-view v-slot="{ Component }">
       <transition name="slide" mode="out-in">
@@ -12,6 +13,7 @@
 
 <script>
 // import AboutComponent from "./components/AboutComponent.vue";
+import NavComponent from './components/NavComponent.vue';
 
 // import PostComponent from "./components/PostComponent.vue";
 // import hello from "./components/HelloWorld.vue";
@@ -19,14 +21,18 @@
 export default {
   name: "App",
   components: {
+    NavComponent
     // PostComponent,
     // AboutComponent
- 
-  methods: {
-    forceRerender() {
-      this.componentKey += 1;
+    ,
+    // PostComponent,
+    // AboutComponent
+    methods: {
+        forceRerender() {
+            this.componentKey += 1;
+        },
     },
-  },
+
 }}
 </script>
 
@@ -40,16 +46,12 @@ export default {
   text-align: center;
   color: #151516;
   height: 100vh;
-
-  background-color: #faf5f5;
-  margin: 0;
-  background-color: #9adee2 53%;
+  background-color: #3c8086;
   margin: 0;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 html {
-  background-color: #9adee2 53%;
   -moz-box-sizing: border-box;
   overflow: hidden;
 }
@@ -69,7 +71,7 @@ html {
 body {
   height: 100vh;
   margin: 0em;
-  background-color: #9adee2 53%;
+  background-color: #3c8086 53%;
 }
 
 .mapContent {
@@ -91,7 +93,7 @@ button {
   Enter and leave animations can use different
   durations and timing functions.
 */
-.slide-enter-active,
+/* .slide-enter-active,
 .slide-leave-active {
   transition: opacity 0.5s, transform 1s;
 }
@@ -100,5 +102,5 @@ button {
 .slide-leave-to {
   opacity: 0;
   transform: translateX(-99%);
-}
+} */
 </style>

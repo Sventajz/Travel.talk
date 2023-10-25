@@ -47,12 +47,7 @@
       <p class="error" v-if="error">{{ error }}</p>
       <div
         class="posts-container"
-        style="
-          overflow: scroll;
-          height: 500px;
-          margin: auto;
-          box-sizing: border-box;
-        "
+        style="overflow: auto; height: 75%; margin: auto"
       >
         <div
           class="post"
@@ -127,37 +122,15 @@ export default {
   },
   components: { MapComponent },
 };
-// PostService.getPosts()
-//   .then((response) => response.json())
-//   .then((post) => {
-//     console.log(post.userName);
-//     return post.userName;
-//   });
-
-// const printAddress = async () => {
-//   const a = await test;
-//   console.log("this is post a: ", a);
-// };
-
-// printAddress();
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .postcont {
   display: grid;
-  position: absolute;
-  left: 10%;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: 600px 300px;
-  height: calc(100% - 100px);
-  gap: 10px;
-  background: #90ced1 53%;
-  margin-top: 10px;
-  width: 80%;
-  box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  align-items: center;
 }
 
 .mapcont {
@@ -166,7 +139,8 @@ export default {
   align-items: center;
 }
 
-div.container {
+.container {
+  max-height: 100vh;
   color: black;
   width: 500px;
   margin: auto;
@@ -174,7 +148,9 @@ div.container {
   height: 90%;
   overflow: hidden;
 }
-
+.post-container {
+  background-color: red;
+}
 p.error {
   padding: 10px;
   margin-bottom: 15px;
@@ -185,20 +161,13 @@ p.error {
   background-color: rgb(242, 68, 68);
 }
 
-div.post {
-  position: relative;
-  border: 1px solid #adadad;
+.post {
+  margin-bottom: 20px;
   border-radius: 10px;
-  margin: auto;
-  color: black;
-
-  background-color: #3c8086;
-  box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
-  margin-bottom: 15px;
   width: 450px;
   height: 300px;
-  box-sizing: border-box;
-  margin-bottom: 40px;
+  background-color: #084c5e;
+  color: white;
 }
 
 div.created-at {
@@ -213,7 +182,7 @@ p.text {
   padding: 8px;
   font-size: 17px;
   margin-bottom: 0;
-  background: #9adee2 53%;
+  background: #3c8086 53%;
   border-top: 1px solid rgb(122, 120, 120);
   border-bottom: 1px solid rgb(122, 120, 120);
   border-radius: 12px;
@@ -221,6 +190,7 @@ p.text {
   height: 160px;
   word-wrap: break-word;
   box-sizing: border-box;
+  color: white;
 }
 
 .modal {
