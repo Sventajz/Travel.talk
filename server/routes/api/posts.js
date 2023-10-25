@@ -29,12 +29,9 @@ router.delete("/:id", async (req, res) => {
 });
 
 async function loadPostsCollection() {
-  const client = await mongodb.MongoClient.connect(
-    "mongodb+srv://SvenTajz:CLONErepublic2IMPERIAL2@piprojekt.mnzp0np.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-    }
-  );
+  const client = await mongodb.MongoClient.connect(`${process.env.MONGO_API}`, {
+    useNewUrlParser: true,
+  });
 
   return client.db("vue_express").collection("posts");
 }

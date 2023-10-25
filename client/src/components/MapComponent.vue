@@ -4,7 +4,8 @@ import { Loader } from "@googlemaps/js-api-loader";
 import axios from "axios";
 import { computed, onMounted, ref, watch } from "vue";
 import { useGeolocation } from "../useGeolocation";
-const GOOGLE_MAPS_API_KEY = "AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg";
+// const GOOGLE_MAPS_API_KEY = process.env.VUE_APP_GOOGLE_API;
+console.log("this is google maps api: ", process.env.VUE_APP_GOOGLE_API);
 const url = "http://localhost:5000/api/posts";
 
 export default {
@@ -17,7 +18,7 @@ export default {
       lat: coords.value.latitude,
       lng: coords.value.longitude,
     }));
-    const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY });
+    const loader = new Loader({ apiKey: process.env.VUE_APP_GOOGLE_API });
     const mapDiv = ref(null);
     onMounted(async () => {
       // function that returns places data
@@ -44,7 +45,6 @@ export default {
         });
         marker.setMap(map);
       }
-      setMap(map);
       // this function gets the posts from database
       async function getPosts() {
         try {
@@ -90,7 +90,7 @@ function geoCode(visited) {
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: visited,
-          key: "AIzaSyACDiuKzL2tNd_q26PkXRFiLBtX5suP4Cg",
+          key: process.env.VUE_APP_GOOGLE_API,
         },
       })
       .then(function (response) {
