@@ -58,7 +58,7 @@ html {
 body {
   height: 100vh;
   margin: 0em;
-  background-color: #45474b;
+  background-color: #2a4b3d;
 }
 
 /*

@@ -39,7 +39,7 @@ elements.style {
   --navClr: #495e57;
 }
 nav {
-  background-color: #495e57;
+  background-color: #45474b;
   color: #f5f7f8;
   display: flex;
   justify-content: space-between;

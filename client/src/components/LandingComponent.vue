@@ -6,11 +6,13 @@
       <div class="body-wrapper">
         <img src="../assets/wet.jpg" class="banner-img" alt="green" />
         <div class="landing-wrapper">
-          <RouterLink to="/login">
-            <button class="button-36">Log in!</button>
-          </RouterLink>
+          <h3>Don't have an account?</h3>
           <RouterLink to="/signup">
             <button class="button-36">Sign up!</button>
+          </RouterLink>
+          <h3>You already have an account?</h3>
+          <RouterLink to="/login">
+            <button class="button-36">Log in!</button>
           </RouterLink>
         </div>
       </div>
@@ -33,9 +35,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .body-wrapper {
-  background-color: white;
+  background-color: #45474b;
   height: 500px;
   width: 600px;
+  color: white;
 }
 .landing-wrapper {
   width: 100%;
