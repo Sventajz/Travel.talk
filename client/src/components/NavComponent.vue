@@ -1,7 +1,6 @@
 <template>
   <nav>
     <div class="logoname">
-      <img src="../assets/TravelLogo.svg" style="height: 75px; width: 75px" />
       <H2>Travel.Talk</H2>
     </div>
     <div class="ul-container">
@@ -39,7 +38,7 @@ elements.style {
   --navClr: #495e57;
 }
 nav {
-  background-color: #45474b;
+  background-color: rgb(31, 29, 29);
   color: #f5f7f8;
   display: flex;
   justify-content: space-between;
@@ -63,7 +62,7 @@ a {
   color: #f5f7f8;
 }
 a:hover {
-  color: #f4ce14;
+  color: #5f7e74;
   font-weight: bolder;
 }
 ul {

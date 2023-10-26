@@ -48,7 +48,7 @@ elements.style {
   align-items: center;
   color: #151516;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 html {
   -moz-box-sizing: border-box;
@@ -58,7 +58,12 @@ html {
 body {
   height: 100vh;
   margin: 0em;
-  background-color: #2a4b3d;
+
+  background-color: rgba(240, 229, 207, 255) f2;
+}
+.router-wrapper {
+  height: 100%;
+  width: 100%;
 }
 
 /*
