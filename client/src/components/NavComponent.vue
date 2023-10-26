@@ -5,11 +5,11 @@
       <H2>Travel.Talk</H2>
     </div>
     <div class="ul-container">
-      <!-- <ul>
-        <li>Profile name</li>
-        <li>about</li>
-      </ul> -->
-      <button class="navBtn" v-on:click="logout()">Log out</button>
+      <ul>
+        <li><a href="">Profile</a></li>
+        <li><a href="">About</a></li>
+        <li><button class="navBtn" v-on:click="logout()">Log out</button></li>
+      </ul>
     </div>
   </nav>
 </template>
@@ -32,49 +32,56 @@ export default {
 };
 </script>
 <style>
+elements.style {
+  --backgroundClr: #f5f7f8;
+  --buttonClr: #f4ce14;
+  --contentClr: #495e57;
+  --navClr: #495e57;
+}
 nav {
-  border-bottom: 1px solid #adadad;
-  background-color: rgb(233, 232, 232);
-  color: black;
-  height: 75px;
+  background-color: #495e57;
+  color: #f5f7f8;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-size: 20px;
 }
 
-.logoname {
-  margin: auto;
-  margin-left: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-}
 .ul-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin-right: 2rem;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #f5f7f8;
+}
+a:hover {
+  color: #f4ce14;
+  font-weight: bolder;
+}
+ul {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-right: 20px;
+  width: 200px;
 }
+.logoname {
+  display: flex;
+  justify-content: space-between;
+}
+
 .navBtn {
-  background-color: rgb(251, 251, 125);
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-size: 16px;
-  font-weight: bold;
-  height: 3rem;
-  padding: 0 1.6rem;
-  text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-  transition: all 0.5s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-.navBtn:hover {
-  box-shadow: rgba(28, 28, 29, 0.5) 0 1px 30px;
+  border: none;
+  border-radius: 10px;
+  height: 2rem;
+  background-color: #45474b;
+  color: #f5f7f8;
 }
 </style>
