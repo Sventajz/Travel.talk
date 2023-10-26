@@ -118,7 +118,7 @@ a {
 }
 
 .button-36:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  box-shadow: rgba(224, 223, 226, 0.5) 0 1px 30px;
   transition-duration: 0.1s;
 }
 </style>

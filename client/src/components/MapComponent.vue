@@ -4,6 +4,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 import axios from "axios";
 import { computed, onMounted, ref, watch } from "vue";
 import { useGeolocation } from "../useGeolocation";
+
 // const GOOGLE_MAPS_API_KEY = process.env.VUE_APP_GOOGLE_API;
 console.log("this is google maps api: ", process.env.VUE_APP_GOOGLE_API);
 const url = "http://localhost:5000/api/posts";

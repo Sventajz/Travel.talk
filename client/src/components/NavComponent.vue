@@ -9,7 +9,7 @@
         <li>Profile name</li>
         <li>about</li>
       </ul> -->
-      <button class="button-36" v-on:click="logout()">Log out</button>
+      <button class="navBtn" v-on:click="logout()">Log out</button>
     </div>
   </nav>
 </template>
@@ -49,8 +49,13 @@ nav {
   justify-content: center;
   padding: 5px;
 }
-
-.button-36 {
+.ul-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+}
+.navBtn {
   background-color: rgb(251, 251, 125);
   border-radius: 8px;
   border-style: none;
@@ -69,7 +74,7 @@ nav {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-.button-36:hover {
+.navBtn:hover {
   box-shadow: rgba(28, 28, 29, 0.5) 0 1px 30px;
 }
 </style>
