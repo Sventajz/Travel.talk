@@ -131,14 +131,17 @@ export default {
 .postcont {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: calc(100vh - 50px);
   align-items: center;
+  height: 80%;
+  margin-top: 100px;
 }
 
 .mapcont {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .container {

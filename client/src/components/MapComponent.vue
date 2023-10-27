@@ -23,29 +23,29 @@ export default {
     const mapDiv = ref(null);
     onMounted(async () => {
       // function that returns places data
-      async function run() {
-        const result = await main();
-        console.log("hello", result);
-        return result;
-      }
-      let runVal = await run();
-      var jsVal = JSON.stringify(runVal);
-      jsVal = JSON.parse(jsVal);
-      console.log("jsVal:", jsVal[0]);
+      // async function run() {
+      //   const result = await main();
+      //   console.log("hello", result);
+      //   return result;
+      // }
+      // let runVal = await run();
+      // var jsVal = JSON.stringify(runVal);
+      // jsVal = JSON.parse(jsVal);
+      // console.log("jsVal:", jsVal[0]);
 
       await loader.load();
-      var map = new google.maps.Map(mapDiv.value, {
+      new google.maps.Map(mapDiv.value, {
         center: currPos.value,
-        zoom: 1,
+        zoom: 2,
       });
 
-      for (let i = 0; i < jsVal.length; i++) {
-        var marker = new google.maps.Marker({
-          position: JSON.parse(jsVal[i]),
-          Text: "hello world",
-        });
-        marker.setMap(map);
-      }
+      // for (let i = 0; i < jsVal.length; i++) {
+      //   var marker = new google.maps.Marker({
+      //     position: JSON.parse(jsVal[i]),
+      //     Text: "hello world",
+      //   });
+      //   marker.setMap(map);
+      // }
       // this function gets the posts from database
       async function getPosts() {
         try {
@@ -110,14 +110,13 @@ geoCode();
 
 <template>
   <div class="maps">
-    <div ref="mapDiv" style="width: 400px; height: 400px"></div>
-    <div id="location"></div>
+    <div ref="mapDiv" style="width: 100%; height: 100%"></div>
   </div>
 </template>
 
-<style scoped>
+<style>
 .maps {
-  display: grid;
-  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 </style>
