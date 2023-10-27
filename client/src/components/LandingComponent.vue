@@ -6,44 +6,47 @@
       <div class="body-wrapper">
         <div class="banner-img">
           <div class="hover-wrapper">
+            <img src="../assets/illu.jpg" class="image-filter" alt="green" />
             <div class="banner-overlay"><h1>Share your hidden gems!</h1></div>
-            <img src="../assets/illu.jpg" class="image" alt="green" />
           </div>
         </div>
         <div class="landing-wrapper">
           <img src="../assets/travel-ver2.svg" class="svg-image" />
-          <h3>Don't have an account?</h3>
+
           <div class="form-container">
             <form action="" class="form-wrapper">
+              <label>Your username</label>
               <input
                 type="name"
                 class="form-input"
                 placeholder="username"
                 v-model="name"
               />
+              <label>Your email address</label>
               <input
                 type="email"
                 class="form-input"
                 placeholder="info@mailaddress.com"
                 v-model="email"
               />
+              <label>Your password</label>
+              <input type="password" class="form-input" v-model="password" />
+              <label>Confirm password</label>
               <input
                 type="password"
                 class="form-input"
-                placeholder="••••••••••••"
-                v-model="password"
+                v-model="passwordConfirmation"
               />
-              <div class="form-input">
-                <button
-                  type="submit"
-                  class="signup-Btn"
-                  role="button"
-                  value="Sign Up"
-                  @click="signup()"
-                >
-                  Sign up!
-                </button>
-              </div>
+              <div style="color: black">{{ error }}</div>
+
+              <button
+                class="signup-Btn"
+                type="button"
+                value="Sign Up"
+                @click="signup()"
+              >
+                Sign up!
+              </button>
             </form>
           </div>
           <h3>
@@ -71,6 +74,8 @@ export default {
       name: "",
       email: "",
       password: "",
+      passwordConfirmation: "",
+      error: "",
     };
   },
   methods: {
@@ -81,20 +86,30 @@ export default {
         password: this.password,
       };
       console.log(newUser);
-      axios.post("http://localhost:5000/api/posts/register", newUser);
+      if (this.password == this.passwordConfirmation) {
+        axios.post("http://localhost:5000/api/posts/register", newUser);
+        this.$router.push("/login");
+      } else {
+        this.error = "Password does not match";
+      }
+      console.log("hello worlds");
     },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 
 .landing-class {
   min-width: 70%;
   max-width: 1200px;
   margin-top: 20px;
+}
+label {
+  text-align: left;
+  color: black;
 }
 .body-wrapper {
   background-color: var(--landingClr);
@@ -120,26 +135,31 @@ export default {
   height: 170px;
 }
 .form-container {
-  height: 400px;
+  height: 500px;
   background-color: var(--backgroundClr);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
 }
 
 .form-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100%;
-  width: 100%;
+  width: 70%;
+  margin: auto;
 }
 
 input {
   margin: auto;
-  width: 70%;
+  width: 100%;
   border: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   border-bottom: 2px solid var(--landingClr);
   height: 3rem;
   transition: 0.5s;
@@ -174,7 +194,7 @@ input:focus {
   position: absolute;
   top: 200px;
   text-align: center;
-  background-color: rgba(1, 1, 1, 0.479);
+  background-color: rgba(1, 1, 1, 0.719);
   width: 100%;
   height: 70px;
   display: flex;
@@ -184,14 +204,27 @@ input:focus {
 }
 
 .signup-Btn {
+  color: white;
   border: none;
   border-radius: 5px;
   height: 4em;
   width: 7rem;
-  background-color: var(--buttonClr);
-  margin: auto;
+  background-color: #495e57;
+
   margin-bottom: 5%;
   font-size: 1rem;
   font-weight: bold;
+  transition: 0.7s;
+}
+
+.signup-Btn:hover {
+  color: #495e57;
+  background-color: white;
+  border: 1px solid #495e57;
+  transition: 0.7s;
+}
+.image-filter {
+  position: relative;
+  filter: grayscale(25%);
 }
 </style>
