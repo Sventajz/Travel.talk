@@ -1,6 +1,7 @@
 <template>
   <nav>
     <div class="logoname">
+      <img src="../assets/travel-ver2.svg" style="height: 70px" />
       <H2>Travel.Talk</H2>
     </div>
     <div class="ul-container">
@@ -57,11 +58,11 @@ nav {
 li {
   list-style: none;
 }
-a {
+ul > li > a {
   text-decoration: none;
   color: #f5f7f8;
 }
-a:hover {
+ul > li > a:hover {
   color: #5f7e74;
   font-weight: bolder;
 }
@@ -74,6 +75,8 @@ ul {
 .logoname {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .navBtn {

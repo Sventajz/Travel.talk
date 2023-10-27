@@ -11,14 +11,47 @@
           </div>
         </div>
         <div class="landing-wrapper">
+          <img src="../assets/travel-ver2.svg" class="svg-image" />
           <h3>Don't have an account?</h3>
-          <RouterLink to="/signup">
-            <button class="button-36">Sign up!</button>
-          </RouterLink>
-          <h3>You already have an account?</h3>
-          <RouterLink to="/login">
-            <button class="button-36">Log in!</button>
-          </RouterLink>
+          <div class="form-container">
+            <form action="" class="form-wrapper">
+              <input
+                type="name"
+                class="form-input"
+                placeholder="username"
+                v-model="name"
+              />
+              <input
+                type="email"
+                class="form-input"
+                placeholder="info@mailaddress.com"
+                v-model="email"
+              />
+              <input
+                type="password"
+                class="form-input"
+                placeholder="••••••••••••"
+                v-model="password"
+              />
+              <div class="form-input">
+                <button
+                  type="submit"
+                  class="signup-Btn"
+                  role="button"
+                  value="Sign Up"
+                  @click="signup()"
+                >
+                  Sign up!
+                </button>
+              </div>
+            </form>
+          </div>
+          <h3>
+            You already have an account?
+            <RouterLink to="/login">
+              <a href="" class="login-selector">Log in!</a>
+            </RouterLink>
+          </h3>
         </div>
       </div>
     </div>
@@ -27,52 +60,114 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "LandingComponent",
   props: {
     msg: String,
   },
-  data() {},
-  methods: {},
+  data() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    signup() {
+      let newUser = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      };
+      console.log(newUser);
+      axios.post("http://localhost:5000/api/posts/register", newUser);
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
-.body-wrapper {
-  background-color: rgba(58, 87, 65, 255);
-  height: 75vh;
-  width: 100%;
-  color: White;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px 2px rgba(1, 1, 1, 0.5);
+
+.landing-class {
+  min-width: 70%;
+  max-width: 1200px;
+  margin-top: 20px;
 }
+.body-wrapper {
+  background-color: var(--landingClr);
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: var(--backgroundClr);
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(110, 110, 110, 0.644);
+}
+
 .landing-wrapper {
   width: 100%;
-}
-.image {
-  object-fit: cover;
-
   height: 100%;
-  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
+.svg-image {
+  height: 170px;
+}
+.form-container {
+  height: 400px;
+  background-color: var(--backgroundClr);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+input {
+  margin: auto;
+  width: 70%;
+  border: none;
+  border-bottom: 2px solid var(--landingClr);
+  height: 3rem;
+  transition: 0.5s;
+}
+input:focus {
+  transform: scale(1.05);
+  transition: 0.5s;
+  outline: none;
+}
+
 .hover-wrapper {
   transition: transform 0.5s;
 }
+
+.login-selector {
+  color: var(--buttonClr);
+}
 .banner-img {
+  margin-right: auto;
   height: 100%;
   position: relative;
   transition: transform 0.5s;
   overflow: hidden;
-  width: 55%;
+  width: 70%;
 }
 
 .hover-wrapper:hover {
   transform: scale(1.1);
-}
-.landing-class {
-  width: 70%;
 }
 
 .banner-overlay {
@@ -86,5 +181,17 @@ export default {
   align-items: center;
   justify-content: center;
   font-family: "Playfair Display", serif;
+}
+
+.signup-Btn {
+  border: none;
+  border-radius: 5px;
+  height: 4em;
+  width: 7rem;
+  background-color: var(--buttonClr);
+  margin: auto;
+  margin-bottom: 5%;
+  font-size: 1rem;
+  font-weight: bold;
 }
 </style>

@@ -3,7 +3,7 @@ import App from "../App.vue";
 import landing from "../components/LandingComponent.vue";
 import login from "../components/LoginComponent.vue";
 import postcomp from "../components/PostComponent.vue";
-import signup from "../components/Signup.vue";
+//import signup from "../components/Signup.vue";
 
 const routes = [
   {
@@ -11,11 +11,11 @@ const routes = [
     name: "Landing",
     component: landing,
   },
-  {
-    path: "/signup",
-    name: "Signup",
-    component: signup,
-  },
+  // {
+  //   path: "/signup",
+  //   name: "Signup",
+  //   component: signup,
+  // },
   {
     path: "/app",
     name: "app",

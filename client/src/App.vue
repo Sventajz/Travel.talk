@@ -32,12 +32,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
-elements.style {
-  --backgroundClr: #f5f7f8;
-  --buttonClr: #f4ce14;
-  --contentClr: #495e57;
-  --navClr: #495e57;
-}
+
 #app {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -58,8 +53,8 @@ html {
 body {
   height: 100vh;
   margin: 0em;
-
-  background-color: rgba(240, 229, 207, 255) f2;
+  background-color: var(--backgroundClr);
+  /* background-color: rgba(240, 229, 207, 255); */
 }
 .router-wrapper {
   height: 100%;
