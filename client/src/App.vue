@@ -53,7 +53,8 @@ html {
 body {
   height: 100vh;
   margin: 0em;
-  background-color: var(--backgroundClr);
+  background: url("./assets/Wave.svg");
+  background-size: cover;
   /* background-color: rgba(240, 229, 207, 255); */
 }
 .router-wrapper {

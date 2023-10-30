@@ -6,7 +6,7 @@
       <div class="body-wrapper">
         <div class="banner-img">
           <div class="hover-wrapper">
-            <img src="../assets/illu.jpg" class="image-filter" alt="green" />
+            <!-- <img src="../assets/illu.jpg" class="image-filter" alt="green" /> -->
             <div class="banner-overlay"><h1>Share your hidden gems!</h1></div>
           </div>
         </div>
@@ -15,26 +15,31 @@
 
           <div class="form-container">
             <form action="" class="form-wrapper">
-              <label>Your username</label>
               <input
                 type="name"
                 class="form-input"
-                placeholder="username"
+                placeholder="Name"
                 v-model="name"
               />
-              <label>Your email address</label>
+
               <input
                 type="email"
                 class="form-input"
-                placeholder="info@mailaddress.com"
+                placeholder="Email"
                 v-model="email"
               />
-              <label>Your password</label>
-              <input type="password" class="form-input" v-model="password" />
-              <label>Confirm password</label>
+
               <input
                 type="password"
                 class="form-input"
+                v-model="password"
+                placeholder="Confirm Password"
+              />
+
+              <input
+                type="password"
+                class="form-input"
+                placeholder="Password"
                 v-model="passwordConfirmation"
               />
               <div style="color: black">{{ error }}</div>
@@ -129,6 +134,7 @@ label {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 1.2rem;
 }
 
 .svg-image {
@@ -137,7 +143,8 @@ label {
 .form-container {
   height: 500px;
   background-color: var(--backgroundClr);
-  width: 100%;
+  width: 80%;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,14 +162,17 @@ label {
 }
 
 input {
+  font-size: 1.2rem;
   margin: auto;
   width: 100%;
   border: none;
+  background: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border-bottom: 2px solid var(--landingClr);
-  height: 3rem;
+  border-bottom: 3px solid var(--landingClr);
+  height: 40px;
   transition: 0.5s;
+  color: var(--landingClr);
 }
 input:focus {
   transform: scale(1.05);
@@ -172,6 +182,11 @@ input:focus {
 
 .hover-wrapper {
   transition: transform 0.5s;
+  background: url(../assets/illu.jpg);
+  background-size: cover;
+  filter: grayscale(25%);
+  height: 100%;
+  width: 100%;
 }
 
 .login-selector {
@@ -208,7 +223,7 @@ input:focus {
   border: none;
   border-radius: 5px;
   height: 4em;
-  width: 7rem;
+  width: 60%;
   background-color: #495e57;
 
   margin-bottom: 5%;

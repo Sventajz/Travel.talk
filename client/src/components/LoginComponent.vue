@@ -89,12 +89,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.body-wrapper {
-  width: 100%;
-}
-input {
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-</style>
+<style></style>
