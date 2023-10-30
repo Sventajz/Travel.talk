@@ -148,7 +148,6 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
 }
 
 .form-wrapper {
@@ -158,7 +157,6 @@ label {
   align-items: center;
   height: 100%;
   width: 70%;
-  margin: auto;
 }
 
 input {

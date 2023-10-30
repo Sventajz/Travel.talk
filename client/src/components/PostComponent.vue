@@ -45,10 +45,7 @@
       </Teleport>
       <hr />
       <p class="error" v-if="error">{{ error }}</p>
-      <div
-        class="posts-container"
-        style="overflow: auto; height: 75%; margin: auto"
-      >
+      <div class="posts-container">
         <div
           class="post"
           v-for="(post, index) in posts"
@@ -127,13 +124,14 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .postcont {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 70% 30%;
   align-items: center;
   height: 80%;
-  margin-top: 100px;
+  width: 100%;
+  margin: auto;
 }
 
 .mapcont {
@@ -141,21 +139,32 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
 }
 
 .container {
   max-height: 100vh;
+  width: 100%;
   color: black;
-  width: 500px;
   margin: auto;
   margin-top: 20px;
-  height: 90%;
+  height: 100%;
   overflow: hidden;
+  overflow: scroll;
 }
-.post-container {
-  background-color: red;
+.posts-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
+
+.post {
+  background-color: var(--backgroundClr);
+  border: 1px solid red;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
 p.error {
   padding: 10px;
   margin-bottom: 15px;
@@ -164,38 +173,6 @@ p.error {
   border-radius: 10px;
   color: white;
   background-color: rgb(242, 68, 68);
-}
-
-.post {
-  margin-bottom: 20px;
-  border-radius: 10px;
-  width: 450px;
-  height: 300px;
-  background-color: #084c5e;
-  color: white;
-}
-
-div.created-at {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: darkgreen;
-}
-
-p.text {
-  text-align: justify;
-  padding: 8px;
-  font-size: 17px;
-  margin-bottom: 0;
-  background: #3c8086 53%;
-  border-top: 1px solid rgb(122, 120, 120);
-  border-bottom: 1px solid rgb(122, 120, 120);
-  border-radius: 12px;
-  margin: 8px;
-  height: 160px;
-  word-wrap: break-word;
-  box-sizing: border-box;
-  color: white;
 }
 
 .modal {
@@ -212,64 +189,5 @@ p.text {
   justify-content: center;
   align-items: center;
   box-shadow: 1px black;
-}
-
-.create-post {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  width: 600px;
-  background-color: white;
-  border: 1px solid gray;
-  border-radius: 15px;
-  opacity: 100%;
-  box-shadow: 0.2em 0.2em 0.2em rgb(136, 134, 134);
-}
-
-.text-input {
-  height: 250px;
-  width: 90%;
-}
-
-.field-style {
-  background-color: rgb(252, 251, 251);
-}
-
-.post-btn,
-.delete-btn {
-  background-color: rgb(251, 251, 125);
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-size: 16px;
-  font-weight: bold;
-  height: 3rem;
-  padding: 0 1.6rem;
-  text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-  transition: all 0.5s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-.delete-btn:hover {
-  box-shadow: rgba(224, 223, 226, 0.5) 0 1px 30px;
-}
-
-.post-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
-.post-info > * {
-  margin-left: 8px;
-  margin-right: 8px;
 }
 </style>

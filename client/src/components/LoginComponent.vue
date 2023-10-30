@@ -7,7 +7,6 @@
       <div class="body-wrapper">
         <div class="banner-img">
           <div class="hover-wrapper">
-            <img src="../assets/illu.jpg" class="image-filter" alt="green" />
             <div class="banner-overlay"><h1>Share your hidden gems!</h1></div>
           </div>
         </div>
@@ -16,15 +15,19 @@
 
           <div class="form-container">
             <form action="" class="form-wrapper">
-              <label>Your email address</label>
               <input
                 type="email"
                 class="form-input"
-                placeholder="info@mailaddress.com"
+                placeholder="Email"
                 v-model="identifier"
               />
-              <label>Your password</label>
-              <input type="password" class="form-input" v-model="password" />
+
+              <input
+                type="password"
+                class="form-input"
+                v-model="password"
+                placeholder="Password"
+              />
 
               <div style="color: black">{{ error }}</div>
 

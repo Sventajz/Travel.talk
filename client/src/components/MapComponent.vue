@@ -10,16 +10,16 @@ console.log("this is google maps api: ", process.env.VUE_APP_GOOGLE_API);
 const url = "http://localhost:5000/api/posts";
 
 export default {
-  mounted() {
-    console.log(process.env.GOOGLE_API);
-  },
+  mounted() {},
   setup() {
     const { coords } = useGeolocation();
     const currPos = computed(() => ({
       lat: coords.value.latitude,
       lng: coords.value.longitude,
     }));
-    const loader = new Loader({ apiKey: process.env.VUE_APP_GOOGLE_API });
+    const loader = new Loader({
+      apiKey: process.env.VUE_APP_GOOGLE_API,
+    });
     const mapDiv = ref(null);
     onMounted(async () => {
       // function that returns places data
