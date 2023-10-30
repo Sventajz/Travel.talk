@@ -10,11 +10,9 @@
           <div class="create-post">
             <button @click="open = false">Close window</button>
             <ul>
-              <label for="create-post"></label>
               <li>
                 <input
                   type="userName"
-                  class="field-style"
                   id="create-post name-input"
                   v-model="userName"
                   placeholder="Your name"
@@ -23,7 +21,6 @@
               <li>
                 <input
                   type="place"
-                  class="field-style"
                   id="create-post place-input"
                   v-model="place"
                   placeholder="Where have you been"
@@ -35,7 +32,6 @@
               maxlength="350"
               type="text"
               id="create-post"
-              class="text-input field-style"
               v-model="text"
               placeholder="What would you like to say"
             />
@@ -127,8 +123,9 @@ export default {
 <style>
 .postcont {
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 65% 35%;
   align-items: center;
+  gap: 20px;
   height: 80%;
   width: 100%;
   margin: auto;
@@ -149,14 +146,30 @@ export default {
   margin-top: 20px;
   height: 100%;
   overflow: hidden;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .posts-container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+  padding: 0;
 }
 
+.container::-webkit-scrollbar-track {
+  display: none;
+}
+
+.container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background: var(--backgroundClr);
+  border: 1px solid var(--landingClr);
+  margin-left: 10px;
+}
 .post {
   background-color: var(--backgroundClr);
   border: 1px solid red;
@@ -177,17 +190,24 @@ p.error {
 
 .modal {
   position: absolute;
-  z-index: 999;
-  top: 0;
-  left: 8%;
-  height: 100%;
-  width: 100vw;
-  margin: auto;
-  margin-left: -150px;
-  background-color: rgba(240, 240, 240, 0.5);
+
+  top: 25%;
+  left: 25%;
+  height: 500px;
+  width: 500px;
+
+  background-color: rgba(240, 240, 240, 1);
   display: block;
   justify-content: center;
   align-items: center;
   box-shadow: 1px black;
+}
+
+.create-post {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

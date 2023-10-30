@@ -124,7 +124,7 @@ label {
   align-items: center;
   border-radius: 5px;
   color: var(--backgroundClr);
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(110, 110, 110, 0.644);
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(34, 34, 34, 0.877);
 }
 
 .landing-wrapper {
