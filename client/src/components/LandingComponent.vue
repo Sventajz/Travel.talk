@@ -15,25 +15,30 @@
 
           <div class="form-container">
             <form action="" class="form-wrapper">
-              <label>Your username</label>
               <input
                 type="name"
                 class="form-input"
-                placeholder="username"
+                placeholder="Name"
                 v-model="name"
               />
-              <label>Your email address</label>
+
               <input
                 type="email"
                 class="form-input"
-                placeholder="info@mailaddress.com"
+                placeholder="Email"
                 v-model="email"
               />
-              <label>Your password</label>
-              <input type="password" class="form-input" v-model="password" />
-              <label>Confirm password</label>
+
               <input
                 type="password"
+                placeholder="Password"
+                class="form-input"
+                v-model="password"
+              />
+
+              <input
+                type="password"
+                placeholder="Confirm password"
                 class="form-input"
                 v-model="passwordConfirmation"
               />
@@ -107,10 +112,7 @@ export default {
   max-width: 1200px;
   margin-top: 20px;
 }
-label {
-  text-align: left;
-  color: black;
-}
+
 .body-wrapper {
   background-color: var(--landingClr);
   height: 80vh;
@@ -135,13 +137,15 @@ label {
   height: 170px;
 }
 .form-container {
-  height: 500px;
+  height: 400px;
+  font-size: 1.1rem;
   background-color: var(--backgroundClr);
-  width: 100%;
+  width: 80%;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  padding: 2rem;
 }
 
 .form-wrapper {
@@ -155,14 +159,17 @@ label {
 }
 
 input {
+  font-size: 1.2rem;
+  color: var(--landingClr);
   margin: auto;
   width: 100%;
   border: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom: 2px solid var(--landingClr);
-  height: 3rem;
+  height: 50px;
   transition: 0.5s;
+  background: none;
 }
 input:focus {
   transform: scale(1.05);
@@ -207,8 +214,8 @@ input:focus {
   color: white;
   border: none;
   border-radius: 5px;
-  height: 4em;
-  width: 7rem;
+  height: 3em;
+  width: 70%;
   background-color: #495e57;
 
   margin-bottom: 5%;

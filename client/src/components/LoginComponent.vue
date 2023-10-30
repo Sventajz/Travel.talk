@@ -20,17 +20,24 @@
               <input
                 type="email"
                 class="form-input"
-                placeholder="info@mailaddress.com"
+                placeholder="Email"
                 v-model="identifier"
+                required
               />
               <label>Your password</label>
-              <input type="password" class="form-input" v-model="password" />
+              <input
+                type="password"
+                placeholder="Password"
+                class="form-input"
+                v-model="password"
+                required
+              />
 
               <div style="color: black">{{ error }}</div>
 
               <button
                 class="signup-Btn"
-                type="button"
+                type="submit"
                 value="Sign Up"
                 @click.prevent="login"
               >
@@ -60,8 +67,8 @@ export default {
     };
   },
   methods: {
-    login(event) {
-      event.preventDefault(); // Prevent default form submission behavior
+    login(e) {
+      e.preventDefault(); // Prevent default form submission behavior
       let newUser = {
         identifier: this.identifier,
         password: this.password,
@@ -92,9 +99,5 @@ export default {
 <style scoped>
 .body-wrapper {
   width: 100%;
-}
-input {
-  margin-top: 10%;
-  margin-bottom: 10%;
 }
 </style>
