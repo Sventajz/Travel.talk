@@ -27,6 +27,7 @@
                 class="form-input"
                 placeholder="Email"
                 v-model="email"
+                required
               />
 
               <input
@@ -34,6 +35,7 @@
                 class="form-input"
                 v-model="password"
                 placeholder="Confirm Password"
+                required
               />
 
               <input
@@ -41,12 +43,13 @@
                 class="form-input"
                 placeholder="Password"
                 v-model="passwordConfirmation"
+                required
               />
               <div style="color: black">{{ error }}</div>
 
               <button
                 class="signup-Btn"
-                type="button"
+                type="submit"
                 value="Sign Up"
                 @click="signup()"
               >
@@ -69,11 +72,13 @@
 
 <script>
 import axios from "axios";
+import { useToast } from "vue-toastification";
 export default {
   name: "LandingComponent",
   props: {
     msg: String,
   },
+
   data() {
     return {
       name: "",
@@ -85,6 +90,7 @@ export default {
   },
   methods: {
     signup() {
+      const toast = useToast();
       let newUser = {
         name: this.name,
         email: this.email,
@@ -93,7 +99,13 @@ export default {
       console.log(newUser);
       if (this.password == this.passwordConfirmation) {
         axios.post("http://localhost:5000/api/posts/register", newUser);
-        this.$router.push("/login");
+        toast.success("Account created successfully", {
+          toastClassName: "my-toast",
+          position: "top-left",
+        });
+        setTimeout(() => {
+          this.$router.push("/login");
+        }, 2000);
       } else {
         this.error = "Password does not match";
       }
@@ -111,6 +123,9 @@ export default {
   min-width: 70%;
   max-width: 1200px;
   margin-top: 20px;
+}
+.Vue-Toastification__toast--default.my-toast {
+  margin-top: 100px;
 }
 label {
   text-align: left;
