@@ -14,7 +14,7 @@
           <img src="../assets/travel-ver2.svg" class="svg-image" />
 
           <div class="form-container">
-            <form action="" class="form-wrapper">
+            <form action="" class="form-wrapper" @keyup.enter="login">
               <input
                 type="email"
                 class="form-input"
