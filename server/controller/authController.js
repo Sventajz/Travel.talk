@@ -78,13 +78,13 @@ const login = (req, res, next) => {
           });
         } else {
           res.status(401).send({
-            message: "Password does not match",
+            message: "password does not match",
           });
         }
       });
     } else {
       res.status(404).send({
-        message: "Username/Email does not exist",
+        message: "no user found!",
       });
     }
   });
