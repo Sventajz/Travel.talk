@@ -4,6 +4,12 @@
       <img src="../assets/travel-ver2.svg" style="height: 70px" />
       <H2>Travel.Talk</H2>
     </div>
+    <div class="search-container">
+      <div class="search-icon-wrapper">
+        <img src="../assets/search.svg" style="height: 50px; width: 50px" />
+      </div>
+      <input class="search-bar" type="search" />
+    </div>
     <div class="ul-container">
       <ul>
         <li><a href="">Profile</a></li>
@@ -32,6 +38,18 @@ export default {
 };
 </script>
 <style>
+.search-bar {
+  background-color: white;
+}
+
+.search-container {
+  height: 50px;
+  display: flex;
+  width: 50%;
+  background-color: white;
+}
+.search-icon-wrapper {
+}
 elements.style {
   --backgroundClr: #f5f7f8;
   --buttonClr: #f4ce14;

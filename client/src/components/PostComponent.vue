@@ -44,7 +44,7 @@
       <div class="posts-container">
         <div
           class="post"
-          v-for="(post, index) in posts"
+          v-for="(post, index) in posts.reverse()"
           v-bind:item="post"
           v-bind:index="index"
           v-bind:userName="userName"
@@ -52,12 +52,15 @@
           v-bind:key="post._id"
         >
           <div class="post-info">
-            {{
-              `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}`
-            }}
             <p>User: {{ post.userName }}</p>
 
             <p>Location: {{ post.place }}</p>
+            <p>
+              Posted:
+              {{
+                `${post.createdAt.getDate()}.${post.createdAt.getMonth()}.${post.createdAt.getFullYear()}`
+              }}
+            </p>
           </div>
           <p class="text">{{ post.text }}</p>
 
@@ -130,12 +133,21 @@ export default {
   width: 100%;
   margin: auto;
 }
-
+.post-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .mapcont {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+.text {
+  text-align: justify;
+  padding: 1rem;
+  border-top: 1px solid var(--landingClr);
 }
 
 .container {
@@ -153,6 +165,7 @@ export default {
   grid-template-columns: 1fr;
   gap: 20px;
   padding: 0;
+  margin-right: 20px;
 }
 
 .container::-webkit-scrollbar-track {
@@ -167,7 +180,7 @@ export default {
   border-radius: 10px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background: var(--backgroundClr);
-  border: 1px solid var(--landingClr);
+
   margin-left: 10px;
 }
 .post {
