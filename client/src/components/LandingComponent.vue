@@ -174,7 +174,7 @@ label {
   width: 70%;
 }
 
-input {
+.form-input {
   font-size: 1.2rem;
   margin: auto;
   width: 100%;
@@ -187,7 +187,7 @@ input {
   transition: 0.5s;
   color: var(--landingClr);
 }
-input:focus {
+.form-input:focus {
   transform: scale(1.05);
   transition: 0.5s;
   outline: none;
