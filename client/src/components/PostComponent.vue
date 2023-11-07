@@ -10,14 +10,14 @@
           <div class="create-post">
             <button @click="open = false">Close window</button>
             <ul>
-              <li>
+              <!-- <li>
                 <input
                   type="userName"
                   id="create-post name-input"
                   v-model="userName"
                   placeholder="Your name"
                 />
-              </li>
+              </li> -->
               <li>
                 <input
                   type="place"
@@ -44,7 +44,7 @@
       <div class="posts-container">
         <div
           class="post"
-          v-for="(post, index) in posts.reverse()"
+          v-for="(post, index) in posts"
           v-bind:item="post"
           v-bind:index="index"
           v-bind:userName="userName"
@@ -103,7 +103,11 @@ export default {
   },
   methods: {
     async createPost() {
-      await PostService.createPost(this.userName, this.text, this.place);
+      await PostService.createPost(
+        localStorage.getItem("userName"),
+        this.text,
+        this.place
+      );
       this.posts = await PostService.getPosts();
       console.log("this is place", this.place);
       console.log("this is geocode data", geoCode(this.place));

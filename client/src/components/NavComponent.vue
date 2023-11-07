@@ -3,34 +3,9 @@
   <nav>
     <div class="logoname">
       <img src="../assets/travel-ver2.svg" style="height: 70px" />
-      <H2>Travel.Talk</H2>
+      <h2>Travel.Talk</h2>
     </div>
-    <div class="search-container">
-      <div class="search-icon-wrapper">
-        <!-- <img
-          src="../assets/search.svg"
-          style="height: 50px; width: 50px"
-          v-on:click="getData"
-        /> -->
-      </div>
-      <form @submit.prevent="getData">
-        <input type="submit" />
-        <input
-          class="search-bar"
-          type="search"
-          v-model="query"
-          v-on:input="getData"
-        />
-      </form>
-    </div>
-    <div
-      class="search-results"
-      style="color: black; height: 100px; width: 100px; background-color: red"
-    >
-      <ul style="background-color: white">
-        <li v-for="name in names">{{ name }}</li>
-      </ul>
-    </div>
+
     <div class="ul-container">
       <ul>
         <li><a href="">Profile</a></li>
@@ -42,8 +17,6 @@
 </template>
 
 <script scoped>
-import axios from "axios";
-// import PostService from "@/PostService";
 export default {
   name: "navComponent",
   async created() {
@@ -51,60 +24,17 @@ export default {
       this.$router.push("/");
     }
   },
-  data() {
-    return {
-      query: null,
-      names: [],
-    };
-  },
+
   methods: {
     logout() {
       localStorage.removeItem("token");
       localStorage.removeItem("userName");
       this.$router.push("/");
     },
-    async getData() {
-      // const query = this.query.toLowerCase();
-      console.log("nav query: ", this.query);
-      axios
-        .get("http://localhost:5000/api/posts")
-        .then((response) => {
-          this.names = response.data
-            .filter((item) =>
-              item.userName.toLowerCase().startsWith(this.query)
-            )
-            .map((item) => item.userName);
-          console.log("nav data: ", this.names);
-        })
-        .catch();
-    },
   },
 };
 </script>
 <style>
-.search-bar {
-  background-color: white;
-  width: 100%;
-}
-.search-results {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.search-container {
-  height: 50px;
-  display: flex;
-  width: 50%;
-  background-color: white;
-}
-.search-icon-wrapper {
-}
-elements.style {
-  --backgroundClr: #f5f7f8;
-  --buttonClr: #f4ce14;
-  --contentClr: #495e57;
-  --navClr: #495e57;
-}
 nav {
   background-color: rgb(31, 29, 29);
   color: #f5f7f8;

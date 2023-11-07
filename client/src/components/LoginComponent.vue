@@ -78,6 +78,7 @@ export default {
             console.log("hello");
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("userName", newUser.identifier);
+
             this.$router.push("/post");
           }
         },
