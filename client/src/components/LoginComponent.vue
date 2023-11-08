@@ -7,7 +7,9 @@
       <div class="body-wrapper">
         <div class="banner-img">
           <div class="hover-wrapper">
-            <div class="banner-overlay"><h1>Share your hidden gems!</h1></div>
+            <div class="banner-overlay">
+              <h1>Share your hidden gems!</h1>
+            </div>
           </div>
         </div>
         <div class="landing-wrapper">
@@ -15,28 +17,13 @@
 
           <div class="form-container">
             <form action="" class="form-wrapper" @keyup.enter="login">
-              <input
-                type="email"
-                class="form-input"
-                placeholder="Email"
-                v-model="identifier"
-              />
+              <input type="email" class="form-input" placeholder="Email" v-model="identifier" />
 
-              <input
-                type="password"
-                class="form-input"
-                v-model="password"
-                placeholder="Password"
-              />
+              <input type="password" class="form-input" v-model="password" placeholder="Password" />
 
               <div style="color: black">{{ error }}</div>
 
-              <button
-                class="signup-Btn"
-                type="button"
-                value="Sign Up"
-                @click.prevent="login"
-              >
+              <button class="signup-Btn" type="button" value="Sign Up" @click.prevent="login">
                 Log in!
               </button>
             </form>
@@ -50,6 +37,7 @@
 
 <script>
 import axios from "axios";
+import { useToast } from 'vue-toastification';
 export default {
   name: "LoginComponent",
   props: {
@@ -64,6 +52,7 @@ export default {
   },
   methods: {
     login(event) {
+      const toast = useToast();
       event.preventDefault(); // Prevent default form submission behavior
       let newUser = {
         identifier: this.identifier,
@@ -78,6 +67,10 @@ export default {
             console.log("hello");
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("userName", newUser.identifier);
+            toast.success("Login succesfull", {
+              toastClassName: "my-toast",
+              position: "top-left",
+            });
 
             this.$router.push("/post");
           }
