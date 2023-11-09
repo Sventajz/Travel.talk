@@ -74,7 +74,7 @@ export default {
       await loader.load();
       var map = new google.maps.Map(mapDiv.value, {
         center: currPos.value,
-        zoom: 2,
+        zoom: 2.1,
       });
       for (let i = 0; i < jsVal.length; i++) {
         var marker = new google.maps.Marker({
