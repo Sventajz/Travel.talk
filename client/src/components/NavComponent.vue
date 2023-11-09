@@ -10,7 +10,14 @@
       <ul>
         <li><a href="">Profile</a></li>
         <li><a href="">About</a></li>
-        <li><button class="navBtn" v-on:click="logout()">Log out</button></li>
+
+        <button
+          class="navBtn"
+          v-on:click="logout()"
+          v-if="this.$route.name === 'PostComponent'"
+        >
+          Log out
+        </button>
       </ul>
     </div>
   </nav>
@@ -26,6 +33,10 @@ export default {
   },
 
   methods: {
+    isLoggedin() {
+      console.log(this.$route.name);
+      if (this.$route.name === "/post") return true;
+    },
     logout() {
       localStorage.removeItem("token");
       localStorage.removeItem("userName");
