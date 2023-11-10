@@ -135,6 +135,9 @@ export default {
   height: 80%;
   width: 100%;
   margin: auto;
+  background-color: var(--backgroundClr);
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .post-info {
   display: flex;
@@ -167,7 +170,7 @@ export default {
 .posts-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 10px;
   padding: 0;
   width: 100%;
   margin-right: 20px;
