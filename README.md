@@ -1,4 +1,4 @@
-# piPRojekt
+# TravelTalk (in progress...)
 Travel blog project for my masters degree
 #Tech stack used to build the project:
 <ol>
@@ -23,6 +23,6 @@ location strings to coordinates so that it can be added to the map.
 All the users and passwords are saved in a database. THe passwords are stored with an encrypted values so there is no security risk of leaking passwords.
 
 ## Planned features:
--Complete redesign of the UI using ReactJS
+- Complete UI redesign (currently in progress)
 -New features such as: comments, uploading images etc.
 - further rendering and fetching optimizations
