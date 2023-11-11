@@ -91,9 +91,9 @@ export default {
     };
   },
   async created() {
-    if (localStorage.getItem("token") === null) {
-      this.$router.push("/");
-    }
+    // if (localStorage.getItem("token") === null) {
+    //   this.$router.push("/");
+    // }
     try {
       this.posts = await PostService.getPosts();
     } catch (err) {
