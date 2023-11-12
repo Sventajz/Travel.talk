@@ -26,14 +26,16 @@
           </div>
 
           <textarea
-            maxlength="350"
+            maxlength="300"
             type="text"
             id="new-post-info"
             v-model="text"
             placeholder="What would you like to say"
           />
           <div class="post-wrapper">
-            <button v-on:click="createPost" @click="open = false">Post!</button>
+            <button id="post-btn" v-on:click="createPost" @click="open = false">
+              Post!
+            </button>
           </div>
         </div>
       </div>
@@ -141,6 +143,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  height: 25px;
 }
 .mapcont {
   display: flex;
@@ -168,7 +171,7 @@ export default {
 .posts-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 5px;
   padding: 0;
   width: 100%;
   margin-right: 20px;
@@ -194,7 +197,7 @@ export default {
   background-color: var(--backgroundClr);
   border-radius: 5px;
   margin: auto;
-  width: 90%;
+  width: 100%;
   height: 100%;
 }
 
@@ -220,8 +223,8 @@ p.error {
 }
 .post-wrapper {
   position: absolute;
-  bottom: 10%;
-  right: 5%;
+  bottom: -10px;
+  right: 2%;
 }
 
 .user-input {
@@ -250,10 +253,13 @@ input:focus {
   background: none;
   outline: none;
 }
+textarea {
+}
 .iarea {
   color: var(--backgroundClr);
   display: flexbox;
   height: 80%;
+  width: 98%;
   border-bottom: 5px solid var(--backgroundClr);
 }
 #place-input {
@@ -268,12 +274,24 @@ input:focus {
 #new-post-info {
   width: 100%;
   height: 80%;
-  font-size: 1.2rem;
+
   background: none;
   padding: 10px;
+  font-size: 15px;
 }
 .place-wrapper {
   display: flex;
   justify-content: left;
+}
+
+#post-btn {
+  border: none;
+  border-radius: 5px;
+  height: 2rem;
+  font-size: 1.2rem;
+
+  background-color: var(--backgroundClr);
+  color: var(--landingClr);
+  font-weight: bold;
 }
 </style>

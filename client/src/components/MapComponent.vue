@@ -41,10 +41,9 @@ export default {
       for (let i = 0; i < jsVal.length; i++) {
         var marker = new google.maps.Marker({
           position: JSON.parse(jsVal[i]),
-          Text: "hello world",
         });
         marker.setMap(map);
-        main();
+        //main();
       }
     });
     // this function gets the posts from database
@@ -88,11 +87,6 @@ export default {
       await main();
     });
 
-    // onMounted(async () => {
-    //   // function that returns places data
-
-    // });
-
     return { currPos, mapDiv };
   },
 };
@@ -115,7 +109,7 @@ function geoCode(visited) {
       });
   });
 }
-geoCode();
+//geoCode();
 </script>
 
 <template>
