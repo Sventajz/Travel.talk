@@ -64,22 +64,33 @@ nav {
 .ul-container {
   display: flex;
   justify-content: space-between;
-  width: 300px;
+  width: 400px;
   margin-right: 2rem;
 }
 li {
   list-style: none;
 }
-ul > li > a {
+a {
+  position: relative;
   text-decoration: none;
-  color: #f5f7f8;
+  color: var(--backgroundClr);
+  letter-spacing: 0.5px;
 }
-ul > li:hover,
-ul > .router-link-active,
-.router-link-exact-active {
-  border-bottom: 5px solid var(--landingClr);
-  font-weight: bolder;
+
+a:after {
+  content: "";
+  position: absolute;
+  background-color: var(--landingClr);
+  height: 5px;
+  width: 0;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
 }
+a:hover:after {
+  width: 100%;
+}
+
 ul {
   display: flex;
   justify-content: space-between;
@@ -99,7 +110,7 @@ ul {
   border-radius: 10px;
   height: 3rem;
   font-size: 1.2rem;
-  width: 40%;
+  width: 35%;
   background-color: var(--landingClr);
   color: #f5f7f8;
   font-weight: bold;

@@ -136,8 +136,6 @@ export default {
   width: 100%;
   margin: auto;
   background-color: var(--backgroundClr);
-  padding-left: 30px;
-  padding-right: 30px;
 }
 .post-info {
   display: flex;
