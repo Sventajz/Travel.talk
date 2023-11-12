@@ -8,7 +8,7 @@ class PostService {
       try {
         const res = await axios.get(url);
         const data = res.data;
-        console.log("this is res data", data);
+
         resolve(
           data.map((post) => ({
             ...post,
@@ -20,6 +20,7 @@ class PostService {
       }
     });
   }
+
   //create post
   static createPost(userName, text, place) {
     return axios.post(url, {

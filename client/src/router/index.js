@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import App from "../App.vue";
-import landing from "../components/LandingComponent.vue";
+import welcome from "../components/WelcomeComponent.vue";
+import signup from "../components/SignupComponent.vue";
 import login from "../components/LoginComponent.vue";
 import postcomp from "../components/PostComponent.vue";
 //import signup from "../components/Signup.vue";
@@ -8,8 +9,8 @@ import postcomp from "../components/PostComponent.vue";
 const routes = [
   {
     path: "/",
-    name: "Landing",
-    component: landing,
+    name: "welcome",
+    component: welcome,
   },
   // {
   //   path: "/signup",
@@ -30,6 +31,11 @@ const routes = [
     path: "/post",
     name: "PostComponent",
     component: postcomp,
+  },
+  {
+    path: "/signup",
+    name: "Landing",
+    component: signup,
   },
 ];
 

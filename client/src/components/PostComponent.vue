@@ -1,45 +1,43 @@
+<!-- eslint-disable vue/require-v-for-key -->
 <template>
   <div class="postcont">
     <div class="mapcont">
       <MapComponent v-bind:key="componentKey"></MapComponent>
     </div>
     <div class="container">
-      <button class="post-btn" @click="open = true">Add a new post!</button>
-      <Teleport to="body">
-        <div v-if="open" class="modal">
-          <div class="create-post">
-            <button @click="open = false">Close window</button>
-            <ul>
-              <li>
-                <input
-                  type="userName"
-                  id="create-post name-input"
-                  v-model="userName"
-                  placeholder="Your name"
-                />
-              </li>
-              <li>
-                <input
-                  type="place"
-                  id="create-post place-input"
-                  v-model="place"
-                  placeholder="Where have you been"
-                />
-              </li>
-            </ul>
-
-            <textarea
-              maxlength="350"
-              type="text"
-              id="create-post"
-              v-model="text"
-              placeholder="What would you like to say"
+      <div class="create-post">
+        <div class="user-input">
+          <img
+            src="../assets/icons8-user-48.png"
+            alt="User icon"
+            id="user-icon"
+            style="height: 50px; width: 50px"
+          />
+          <span>{{ user }}</span>
+        </div>
+        <div class="iarea">
+          <div class="place-wrapper">
+            <input
+              type="place"
+              id="place-input"
+              v-model="place"
+              placeholder="Where have you been"
             />
+          </div>
+
+          <textarea
+            maxlength="350"
+            type="text"
+            id="new-post-info"
+            v-model="text"
+            placeholder="What would you like to say"
+          />
+          <div class="post-wrapper">
             <button v-on:click="createPost" @click="open = false">Post!</button>
           </div>
         </div>
-      </Teleport>
-      <hr />
+      </div>
+
       <p class="error" v-if="error">{{ error }}</p>
       <div class="posts-container">
         <div
@@ -52,12 +50,15 @@
           v-bind:key="post._id"
         >
           <div class="post-info">
-            {{
-              `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}`
-            }}
             <p>User: {{ post.userName }}</p>
 
             <p>Location: {{ post.place }}</p>
+            <p>
+              Posted:
+              {{
+                `${post.createdAt.getDate()}.${post.createdAt.getMonth()}.${post.createdAt.getFullYear()}`
+              }}
+            </p>
           </div>
           <p class="text">{{ post.text }}</p>
 
@@ -86,12 +87,13 @@ export default {
       place: "",
       open: false,
       componentKey: 0,
+      user: localStorage.getItem("userName"),
     };
   },
   async created() {
-    if (localStorage.getItem("token") === null) {
-      this.$router.push("/");
-    }
+    // if (localStorage.getItem("token") === null) {
+    //   this.$router.push("/");
+    // }
     try {
       this.posts = await PostService.getPosts();
     } catch (err) {
@@ -100,7 +102,11 @@ export default {
   },
   methods: {
     async createPost() {
-      await PostService.createPost(this.userName, this.text, this.place);
+      await PostService.createPost(
+        localStorage.getItem("userName"),
+        this.text,
+        this.place
+      );
       this.posts = await PostService.getPosts();
       console.log("this is place", this.place);
       console.log("this is geocode data", geoCode(this.place));
@@ -120,22 +126,34 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 .postcont {
   display: grid;
   grid-template-columns: 65% 35%;
   align-items: center;
-  gap: 20px;
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(34, 34, 34, 0.877);
   height: 80%;
   width: 100%;
   margin: auto;
+  background-color: var(--backgroundClr);
+  padding-left: 30px;
+  padding-right: 30px;
 }
-
+.post-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 .mapcont {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+.text {
+  text-align: justify;
+  padding: 1rem;
+  border-top: 1px solid var(--landingClr);
 }
 
 .container {
@@ -143,16 +161,20 @@ export default {
   width: 100%;
   color: black;
   margin: auto;
-  margin-top: 20px;
+
   height: 100%;
   overflow: hidden;
   overflow-y: scroll;
+  background-color: var(--navClr);
 }
 .posts-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 10px;
   padding: 0;
+  width: 100%;
+  margin-right: 20px;
+  padding: 30px 0 30px;
 }
 
 .container::-webkit-scrollbar-track {
@@ -167,14 +189,14 @@ export default {
   border-radius: 10px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background: var(--backgroundClr);
-  border: 1px solid var(--landingClr);
+
   margin-left: 10px;
 }
 .post {
   background-color: var(--backgroundClr);
-  border: 1px solid red;
+  border-radius: 5px;
   margin: auto;
-  width: 100%;
+  width: 90%;
   height: 100%;
 }
 
@@ -187,27 +209,73 @@ p.error {
   color: white;
   background-color: rgb(242, 68, 68);
 }
-
-.modal {
-  position: absolute;
-
-  top: 25%;
-  left: 25%;
-  height: 500px;
-  width: 500px;
-
-  background-color: rgba(240, 240, 240, 1);
-  display: block;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 1px black;
+#user-icon {
+  background-color: var(--backgroundClr);
+  border-radius: 50px;
 }
 
 .create-post {
-  height: 100%;
-  width: 100%;
+  display: flexbox;
+  height: 40%;
+
+  position: relative;
+}
+.post-wrapper {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+}
+
+.user-input {
   display: flex;
+  justify-content: left;
   align-items: center;
-  justify-content: center;
+  color: var(--backgroundClr);
+  font-size: 1.5rem;
+  height: 20%;
+  gap: 1rem;
+  font-weight: bold;
+  padding: 10px;
+}
+::placeholder {
+  color: var(--backgroundClr);
+}
+textarea,
+input {
+  border: none;
+  color: var(--backgroundClr);
+  background-color: red;
+}
+textarea,
+input:focus {
+  border: none;
+  background: none;
+  outline: none;
+}
+.iarea {
+  color: var(--backgroundClr);
+  display: flexbox;
+  height: 80%;
+  border-bottom: 5px solid var(--backgroundClr);
+}
+#place-input {
+  height: 2rem;
+  font-size: 1.2rem;
+  width: 100%;
+  border-bottom: 2px solid var(--backgroundClr);
+  background: none;
+  padding: 10px;
+}
+
+#new-post-info {
+  width: 100%;
+  height: 80%;
+  font-size: 1.2rem;
+  background: none;
+  padding: 10px;
+}
+.place-wrapper {
+  display: flex;
+  justify-content: left;
 }
 </style>
