@@ -9,10 +9,20 @@
     <div class="ul-container">
       <ul>
         <li>
-          <router-link to="/">Home</router-link>
+          <router-link class="animation" to="/">Home</router-link>
         </li>
-        <li><router-link to="/post">Post</router-link></li>
-        <li><router-link to="/signup">Account</router-link></li>
+        <li><router-link class="animation" to="/post">Post</router-link></li>
+        <div class="dropdown">
+          <li><a>Account</a></li>
+          <div class="mydropdown">
+            <router-link class="dropdownContent" to="/login"
+              >Log in!</router-link
+            >
+            <router-link class="dropdownContent" to="/signup"
+              >Sign up!</router-link
+            >
+          </div>
+        </div>
 
         <button
           class="navBtn"
@@ -70,14 +80,14 @@ nav {
 li {
   list-style: none;
 }
-a {
+.animation {
   position: relative;
   text-decoration: none;
   color: var(--backgroundClr);
   letter-spacing: 0.5px;
 }
 
-a:after {
+.animation:after {
   content: "";
   position: absolute;
   background-color: var(--landingClr);
@@ -87,7 +97,7 @@ a:after {
   bottom: -5px;
   transition: 0.3s;
 }
-a:hover:after {
+.animation:hover:after {
   width: 100%;
 }
 
@@ -122,5 +132,49 @@ ul {
   color: var(--landingClr);
   border: 3px solid var(--landingClr);
   transition: ease-in-out 0.3s;
+}
+
+.dropdown {
+  position: relative;
+  width: 30%;
+  display: inline-block;
+}
+
+.mydropdown {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  height: fit-content;
+  color: black;
+  height: 150px;
+  top: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.dropdownContent {
+  color: black;
+  text-decoration: none;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.dropdownContent:hover {
+  background-color: rgba(114, 102, 102, 0.068);
+  font-weight: bold;
+}
+
+.dropdown:hover {
+  .mydropdown {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
