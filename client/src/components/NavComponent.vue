@@ -13,15 +13,23 @@
         </li>
         <li><router-link class="animation" to="/post">Post</router-link></li>
         <div class="dropdown">
-          <li><a>Account</a></li>
-          <div class="mydropdown">
-            <router-link class="dropdownContent" to="/login"
-              >Log in!</router-link
-            >
-            <router-link class="dropdownContent" to="/signup"
-              >Sign up!</router-link
-            >
-          </div>
+          <li @click="isOpen = !isOpen"><a class="animation">Account</a></li>
+          <transition name="fade" appear>
+            <div class="mydropdown" v-if="isOpen">
+              <router-link
+                class="dropdownContent"
+                to="/login"
+                @click="isOpen = !isOpen"
+                >Log in!</router-link
+              >
+              <router-link
+                class="dropdownContent"
+                to="/signup"
+                @click="isOpen = !isOpen"
+                >Sign up!</router-link
+              >
+            </div>
+          </transition>
         </div>
 
         <button
@@ -43,6 +51,9 @@ export default {
     // if (localStorage.getItem("token") === null) {
     //   this.$router.push("/");
     // }
+  },
+  data() {
+    return { isOpen: false };
   },
 
   methods: {
@@ -138,27 +149,31 @@ ul {
   position: relative;
   width: 30%;
   display: inline-block;
+  transition: all 0.5s ease-in-out;
 }
 
 .mydropdown {
-  display: none;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   width: 100%;
   background-color: white;
   height: fit-content;
   color: black;
   height: 150px;
+  width: 100px;
   top: 100%;
+  margin-top: 5px;
   border: 1px solid gray;
   border-radius: 5px;
+  transition: all 0.5s ease-in;
 }
 
 .dropdownContent {
   color: black;
   text-decoration: none;
   margin: auto;
-  width: 100%;
-  height: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,10 +186,14 @@ ul {
   font-weight: bold;
 }
 
-.dropdown:hover {
-  .mydropdown {
-    display: flex;
-    flex-direction: column;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 </style>

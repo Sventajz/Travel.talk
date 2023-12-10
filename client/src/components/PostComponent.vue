@@ -162,7 +162,6 @@ export default {
   width: 100%;
   color: black;
   margin: auto;
-
   height: 100%;
   overflow: hidden;
   overflow-y: scroll;
@@ -218,11 +217,8 @@ p.error {
 .create-post {
   display: flexbox;
   height: 40%;
-
-  position: relative;
 }
 .post-wrapper {
-  position: absolute;
   bottom: -10px;
   right: 2%;
 }
@@ -253,8 +249,7 @@ input:focus {
   background: none;
   outline: none;
 }
-textarea {
-}
+
 .iarea {
   color: var(--backgroundClr);
   display: flexbox;
