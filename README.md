@@ -24,6 +24,6 @@ All the users and passwords are saved in a database. THe passwords are stored wi
 
 ## Planned features:
 - Complete UI redesign (currently in progress)
-- Createa a ML recommenation model for the app (currently in progress)
+- Create a ML recommenation model for the app (currently in progress)
 -New features such as: comments, uploading images etc.
 - further rendering and fetching optimizations
