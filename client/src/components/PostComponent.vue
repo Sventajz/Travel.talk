@@ -31,12 +31,12 @@
             id="new-post-info"
             v-model="text"
             placeholder="What would you like to say"
+            style="resize: none"
           />
-          <div class="post-wrapper">
-            <button id="post-btn" v-on:click="createPost" @click="open = false">
-              Post!
-            </button>
-          </div>
+
+          <button id="post-btn" v-on:click="createPost" @click="open = false">
+            Post!
+          </button>
         </div>
       </div>
 
@@ -170,7 +170,7 @@ export default {
 .posts-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 5px;
+  gap: 10px;
   padding: 0;
   width: 100%;
   margin-right: 20px;
@@ -196,7 +196,7 @@ export default {
   background-color: var(--backgroundClr);
   border-radius: 5px;
   margin: auto;
-  width: 100%;
+  width: 90%;
   height: 100%;
 }
 
@@ -212,15 +212,6 @@ p.error {
 #user-icon {
   background-color: var(--backgroundClr);
   border-radius: 50px;
-}
-
-.create-post {
-  display: flexbox;
-  height: 40%;
-}
-.post-wrapper {
-  bottom: -10px;
-  right: 2%;
 }
 
 .user-input {
@@ -251,16 +242,15 @@ input:focus {
 }
 
 .iarea {
-  color: var(--backgroundClr);
-  display: flexbox;
-  height: 80%;
-  width: 98%;
-  border-bottom: 5px solid var(--backgroundClr);
+  display: grid;
+  grid-template-columns: 80% 20%;
+  height: 300px;
 }
 #place-input {
   height: 2rem;
   font-size: 1.2rem;
   width: 100%;
+
   border-bottom: 2px solid var(--backgroundClr);
   background: none;
   padding: 10px;
@@ -269,12 +259,14 @@ input:focus {
 #new-post-info {
   width: 100%;
   height: 80%;
-
+  grid-column-start: 1;
+  grid-row-start: 2;
   background: none;
   padding: 10px;
   font-size: 15px;
 }
 .place-wrapper {
+  grid-column: span 2;
   display: flex;
   justify-content: left;
 }
@@ -284,9 +276,11 @@ input:focus {
   border-radius: 5px;
   height: 2rem;
   font-size: 1.2rem;
-
+  grid-column-start: 2;
+  grid-row-start: 2;
   background-color: var(--backgroundClr);
   color: var(--landingClr);
   font-weight: bold;
+  align-self: center;
 }
 </style>
