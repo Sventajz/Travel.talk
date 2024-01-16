@@ -76,7 +76,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  margin-bottom: auto;
   top: 0;
   width: 100%;
   height: 9%;

@@ -134,9 +134,8 @@ export default {
   grid-template-columns: 65% 35%;
   align-items: center;
   box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(34, 34, 34, 0.877);
-  height: 80%;
+  height: 88%;
   width: 100%;
-  margin: auto;
   background-color: var(--backgroundClr);
 }
 .post-info {

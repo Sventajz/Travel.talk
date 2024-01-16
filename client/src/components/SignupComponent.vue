@@ -122,7 +122,8 @@ export default {
 .landing-class {
   min-width: 70%;
   max-width: 1200px;
-  margin-top: 20px;
+  margin: auto;
+  margin-top: 59px;
 }
 .Vue-Toastification__toast--default.my-toast {
   margin-top: 100px;

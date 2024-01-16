@@ -42,7 +42,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  display: flex;
   justify-content: center;
   align-items: center;
   color: #151516;
@@ -64,9 +63,8 @@ body {
 .router-wrapper {
   height: 100%;
   width: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*

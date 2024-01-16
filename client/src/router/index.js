@@ -4,6 +4,7 @@ import welcome from "../components/WelcomeComponent.vue";
 import signup from "../components/SignupComponent.vue";
 import login from "../components/LoginComponent.vue";
 import postcomp from "../components/PostComponent.vue";
+import predictcomp from "../components/PredictComponent.vue";
 //import signup from "../components/Signup.vue";
 
 const routes = [
@@ -36,6 +37,11 @@ const routes = [
     path: "/signup",
     name: "Landing",
     component: signup,
+  },
+  {
+    path: "/predict",
+    name: "Predict",
+    component: predictcomp,
   },
 ];
 
