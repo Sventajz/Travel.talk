@@ -81,6 +81,7 @@
           >
             Predict
           </button>
+          <p>{{ prediction / 100 }}</p>
         </div>
       </div>
     </div>
@@ -105,6 +106,7 @@ export default {
       departure: "",
       stops: "",
       type: "",
+      prediction: "",
     };
   },
 
@@ -150,21 +152,22 @@ export default {
     },
     predict() {
       let predictionData = {
-        source: this.source,
-        destination: this.destination,
+        source_city: this.source,
+        destination_city: this.destination,
         airline: this.airline,
-        arrival: this.arrival,
-        departure: this.departure,
+        arrival_time: this.departure,
+        departure_time: this.arrival,
         stops: this.stops,
-        class: this.class,
+        type: this.type,
       };
 
       console.log(predictionData);
       axios
-        .get("http://127.0.0.1:8000/")
+        .post("http://127.0.0.1:8000/predict", predictionData)
         .then((response) => {
           // Handle successful response
-          console.log(response.data); // Assuming you want to log the response data
+          console.log(response.data[0]);
+          this.prediction = response.data[0]; // Assuming you want to log the response data
         })
         .catch((error) => {
           // Handle error
