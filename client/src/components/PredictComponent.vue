@@ -160,26 +160,51 @@ export default {
       };
 
       console.log(predictionData);
+      axios
+        .get("http://127.0.0.1:8000/")
+        .then((response) => {
+          // Handle successful response
+          console.log(response.data); // Assuming you want to log the response data
+        })
+        .catch((error) => {
+          // Handle error
+          console.error(error);
+        });
     },
     async displayRoute() {
+      const { Map } = await google.maps.importLibrary("maps");
       let route = {
         source: this.source,
         destination: this.destination,
       };
       try {
         let cities = [
-          "28.65553,77.23165",
-          "19.07283 72.88261",
-          "12.971599, 77.594566",
-          "22.56263 88.36304",
-          "17.38405 78.45636",
-          "13.08784 80.27847",
+          { lat: 28.65553, lang: 77.23165 },
+          { lat: 19.07283, lang: 72.88261 },
+          { lat: 12.971599, lang: 77.594566 },
+          { lat: 22.56263, lang: 88.36304 },
+          { lat: 17.38405, lang: 78.45636 },
+          { lat: 13.08784, lang: 80.27847 },
         ];
-        for (let i = 0; i < cities.length; i++) {
-          if (route.source == i + 1) route.source = cities[i];
-          if (route.destination == i + 1) route.destination = cities[i];
-        }
+        let sourceCoords;
+        let destinationCoords;
 
+        for (let i = 0; i < cities.length; i++) {
+          if (route.source == i + 1) console.log(cities[i].lat, cities[i].lang);
+          sourceCoords = new google.maps.LatLng(cities[i].lat, cities[i].lang);
+          console.log(sourceCoords);
+          if (route.destination == i + 1) {
+            destinationCoords = new google.maps.LatLng(
+              cities[i].lat,
+              cities[i].lang
+            );
+          }
+        }
+        const map = new Map(document.getElementById("map"), {
+          center: { lat: 22.397, lng: 82.644 },
+          zoom: 4.5,
+        });
+        console.log("these are coords", sourceCoords, destinationCoords);
         const polyline = new google.maps.Polyline({
           path: [sourceCoords, destinationCoords],
           geodesic: true,
@@ -189,7 +214,8 @@ export default {
         });
 
         // Set the map for the Polyline
-        polyline.setMap(this.map);
+        polyline.setMap(map);
+        console.log("map set");
       } catch (error) {
         console.error("error displaying route: ", error);
       }
