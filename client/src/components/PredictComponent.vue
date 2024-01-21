@@ -4,7 +4,7 @@
       <div class="select-form">
         <div class="form">
           <label for="source">Starting city</label>
-          <select v-model="source">
+          <select v-model="source" class="custom-select" required>
             <option value="1">Delhi</option>
             <option value="2">Mumbai</option>
             <option value="3">Bangalore</option>
@@ -13,9 +13,10 @@
             <option value="6">Chennai</option>
           </select>
         </div>
+
         <div class="form">
           <label for="destination">Destination city</label>
-          <select v-model="destination">
+          <select v-model="destination" class="custom-select" required>
             <option value="1">Delhi</option>
             <option value="2">Mumbai</option>
             <option value="3">Bangalore</option>
@@ -24,9 +25,10 @@
             <option value="6">Chennai</option>
           </select>
         </div>
+
         <div class="form">
           <label for="airline">Airline</label>
-          <select v-model="airline">
+          <select v-model="airline" class="custom-select" required>
             <option value="1">SG-8709</option>
             <option value="2">AirAsia</option>
             <option value="3">Vistara</option>
@@ -35,9 +37,10 @@
             <option value="5">Air_india</option>
           </select>
         </div>
+
         <div class="form">
           <label for="arrival">Arrival time</label>
-          <select v-model="arrival">
+          <select v-model="arrival" class="custom-select" required>
             <option value="1">Evening</option>
             <option value="2">Early morning</option>
             <option value="3">Morning</option>
@@ -46,9 +49,10 @@
             <option value="6">Late night</option>
           </select>
         </div>
+
         <div class="form">
           <label for="departure">Departure time</label>
-          <select v-model="departure">
+          <select v-model="departure" class="custom-select" required>
             <option value="1">Evening</option>
             <option value="2">Early morning</option>
             <option value="3">Morning</option>
@@ -57,29 +61,31 @@
             <option value="6">Late night</option>
           </select>
         </div>
+
         <div class="form">
           <label for="stops">Number of stops</label>
-          <select v-model="stops">
+          <select v-model="stops" class="custom-select" required>
             <option value="1">None</option>
             <option value="2">One</option>
             <option value="3">Two or more</option>
           </select>
         </div>
+
         <div class="form">
           <label for="type">Type of seat class</label>
-          <select v-model="type">
+          <select v-model="type" class="custom-select" required>
             <option value="1">Economy</option>
             <option value="2">Bussines</option>
           </select>
         </div>
-        <div class="form">
+        <div class="btn-form">
           <button
             v-on:click="
               predict();
               displayRoute();
             "
           >
-            Predict
+            Estimate your price
           </button>
           <p>{{ prediction / 100 }}</p>
         </div>
@@ -250,6 +256,7 @@ export default {
   color: var(--backgroundClr);
   box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(34, 34, 34, 0.877);
   color: black;
+  z-index: -1;
 }
 
 .predict-wrapper {
@@ -280,13 +287,31 @@ select {
   height: 100%;
   font-size: 1.3rem;
 }
-label {
+
+select:focus,
+select {
+  outline: none;
+  border: 2px solid var(--landingClr);
+  border-radius: 5px;
+  background-color: white;
 }
 
 button {
-  height: 70%;
-  width: 20%;
-  font-weight: 200;
-  font-size: 1.3rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 2.5em;
+  width: 30%;
+  background-color: #495e57;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.7s;
+}
+
+button:hover {
+  color: #495e57;
+  background-color: white;
+  border: 1px solid #495e57;
+  transition: 0.7s;
 }
 </style>

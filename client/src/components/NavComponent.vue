@@ -12,6 +12,9 @@
           <router-link class="animation" to="/">Home</router-link>
         </li>
         <li><router-link class="animation" to="/post">Post</router-link></li>
+        <li>
+          <router-link class="animation" to="/predict">Trip planer</router-link>
+        </li>
         <div class="dropdown">
           <li @click="isOpen = !isOpen"><a class="animation">Account</a></li>
           <transition name="fade" appear>
@@ -28,17 +31,18 @@
                 @click="isOpen = !isOpen"
                 >Sign up!</router-link
               >
+              <router-link
+                class="dropdownContent"
+                to="/login"
+                @click="
+                  isOpen = !isOpen;
+                  logout();
+                "
+                >Logout</router-link
+              >
             </div>
           </transition>
         </div>
-
-        <button
-          class="navBtn"
-          v-on:click="logout()"
-          v-if="this.$route.name === 'PostComponent'"
-        >
-          Log out
-        </button>
       </ul>
     </div>
   </nav>
@@ -64,7 +68,6 @@ export default {
     logout() {
       localStorage.removeItem("token");
       localStorage.removeItem("userName");
-      this.$router.push("/");
     },
   },
 };
@@ -167,6 +170,7 @@ ul {
   border: 1px solid gray;
   border-radius: 5px;
   transition: all 0.5s ease-in;
+  z-index: 3;
 }
 
 .dropdownContent {

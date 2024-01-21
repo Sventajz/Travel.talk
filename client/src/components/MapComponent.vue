@@ -1,6 +1,6 @@
 <script>
 /* eslint-disable no-undef */
-import { Loader } from "@googlemaps/js-api-loader";
+
 import axios from "axios";
 import { computed, onMounted, ref, watch } from "vue";
 //import { geoCode } from '../geocode';
@@ -16,12 +16,9 @@ export default {
       lng: coords.value.longitude,
     }));
 
-    const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY });
     const mapDiv = ref(null);
 
     onMounted(async () => {
-      await loader.load();
-
       var map = new google.maps.Map(mapDiv.value, {
         center: currPos.value,
         zoom: 2.1,
