@@ -75,7 +75,7 @@
           <label for="type">Type of seat class</label>
           <select v-model="type" class="custom-select" required>
             <option value="1">Economy</option>
-            <option value="2">Bussines</option>
+            <option value="0">Bussines</option>
           </select>
         </div>
         <div class="btn-form">
@@ -87,7 +87,7 @@
           >
             Estimate your price
           </button>
-          <p>{{ prediction / 100 }}</p>
+          <p>Ticket price: {{ Math.round(prediction * 0.012) }}$</p>
         </div>
       </div>
     </div>
@@ -213,7 +213,6 @@ export default {
           center: { lat: 22.397, lng: 82.644 },
           zoom: 4.5,
         });
-        console.log("these are coords", sourceCoords, destinationCoords);
         const polyline = new google.maps.Polyline({
           path: [sourceCoords, destinationCoords],
           geodesic: true,
@@ -224,7 +223,6 @@ export default {
 
         // Set the map for the Polyline
         polyline.setMap(map);
-        console.log("map set");
       } catch (error) {
         console.error("error displaying route: ", error);
       }
@@ -313,5 +311,10 @@ button:hover {
   background-color: white;
   border: 1px solid #495e57;
   transition: 0.7s;
+}
+
+p {
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 </style>
