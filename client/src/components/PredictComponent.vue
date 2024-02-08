@@ -171,12 +171,9 @@ export default {
       axios
         .post("http://127.0.0.1:8000/predict", predictionData)
         .then((response) => {
-          // Handle successful response
-          console.log(response.data[0]);
-          this.prediction = response.data[0]; // Assuming you want to log the response data
+          this.prediction = response.data[0];
         })
         .catch((error) => {
-          // Handle error
           console.error(error);
         });
     },
