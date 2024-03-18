@@ -1,7 +1,7 @@
 const express = require("express");
 const mongodb = require("mongodb");
 const router = express.Router();
-require("dotenv/config");
+require("dotenv").config();
 // Get Posts
 router.get("/", async (req, res) => {
   const posts = await loadPostsCollection();

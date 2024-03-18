@@ -14,12 +14,13 @@ const auth = require("./routes/api/auth");
 app.use("/api/posts", post);
 app.use("/api", auth);
 app.use("/api/posts", auth);
+require('dotenv').config()
 const country = require("./routes/api/countriesVisited");
 //app.use('/api/countriesVisited',country)
 app.use("/uploads", express.static("uploads"));
-const port = process.env.port || 5000;
-require('dotenv').config()
-console.log('this is env file', process.env.GOOGLE_API)
+const port = 5000;
+
+console.log('this is env file', `${port}`)
 app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
 });
