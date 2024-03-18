@@ -21,6 +21,7 @@ app.use("/uploads", express.static("uploads"));
 const port = 5000;
 
 console.log('this is env file', `${port}`)
+
 app.listen(port, () => {
   console.log(`Server started on port: ${port}`);
 });
