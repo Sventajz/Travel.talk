@@ -89,13 +89,9 @@ export default {
       place: "",
       open: false,
       componentKey: 0,
-      user: localStorage.getItem("userName"),
     };
   },
   async created() {
-    // if (localStorage.getItem("token") === null) {
-    //   this.$router.push("/");
-    // }
     try {
       this.posts = await PostService.getPosts();
     } catch (err) {

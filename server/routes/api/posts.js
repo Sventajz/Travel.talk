@@ -1,40 +1,56 @@
 const express = require("express");
-const mongodb = require("mongodb");
-require("dotenv").config();
 const router = express.Router();
-const User = require('../../models/user')
-// Get Posts
+const connectToDatabase = require('../../db'); // Adjust the path as necessary
+const User = require('../../models/user');
+const mongodb = require('mongodb')
+
 router.get("/", async (req, res) => {
-  const posts = await loadPostsCollection();
-  res.send(await posts.find({}).toArray());
+  try {
+    const db = await connectToDatabase();
+    const users = db.collection('users');
+
+    // Aggregate all posts from each user along with user information
+    const allPosts = await users.aggregate([
+      { $unwind: "$posts" }, // Deconstruct the posts array
+      {
+        $project: {
+          post: "$posts",
+          userName: "$name",
+          userEmail: "$email"
+        }
+      }
+    ]).toArray();
+
+    res.send(allPosts);
+  } catch (error) {
+    console.error("Failed to fetch posts:", error);
+    res.status(500).send({ error: 'Failed to fetch posts' });
+  }
 });
 
+router.get('/users', async (req, res) => {
+  try {
+    const db = await connectToDatabase();
+    const users = db.collection('users');
+    const allUsers = await users.find({}).toArray();
+    res.send(allUsers);
+  } catch (error) {
+    res.status(500).send({ error: 'Failed to fetch users' });
+  }
+});
 
-router.get('/users', async (req,res) =>{
-  const users = await loadUserCollection();
-  res.send(await users.find({}).toArray());
-})
-
-// Add Post
- // Assuming your User model is defined in a separate file
-
-// Define a route to handle adding new posts
 router.post('/users/:userId/posts', async (req, res) => {
   const userId = req.params.userId;
-  const postData = req.body; // Assuming you're sending post data in the request body
-  
+  const postData = req.body;
+
   try {
-    // Find the user by ID
     const user = await User.findById(userId);
-    
+
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Add the new post to the user's posts array
     user.posts.push(postData);
-    
-    // Save the user with the new post
     await user.save();
 
     res.status(201).json({ message: 'Post added successfully', user });
@@ -44,30 +60,26 @@ router.post('/users/:userId/posts', async (req, res) => {
   }
 });
 
-module.exports = router;
-
-
-// Delete Post
 router.delete("/:id", async (req, res) => {
-  const posts = await loadPostsCollection();
-  await posts.deleteOne({ _id: new mongodb.ObjectId(req.params.id) });
-  res.status(200).send({});
+  try {
+    const db = await connectToDatabase();
+    const users = db.collection('users');
+
+    // Delete a specific post by its ID
+    const result = await users.updateOne(
+      { "posts._id": new mongodb.ObjectId(req.params.id) },
+      { $pull: { posts: { _id: new mongodb.ObjectId(req.params.id) } } }
+    );
+
+    if (result.modifiedCount === 0) {
+      return res.status(404).send({ error: 'Post not found' });
+    }
+
+    res.status(200).send({ message: 'Post deleted successfully' });
+  } catch (error) {
+    console.error("Failed to delete post:", error);
+    res.status(500).send({ error: 'Failed to delete post' });
+  }
 });
-
-async function loadPostsCollection() {
-  const client = await mongodb.MongoClient.connect(`${process.env.MONGO_API}`, {
-    useNewUrlParser: true,
-  });
-
-  return client.db("vue_express").collection("posts");
-}
-
-async function loadUserCollection(){
-  const client = await mongodb.MongoClient.connect(`${process.env.MONGO_API}`, {
-    useNewUrlParser: true,
-  });
-
-  return client.db('test').collection('users')
-}
 
 module.exports = router;

@@ -98,7 +98,7 @@ export default {
       };
       console.log(newUser);
       if (this.password == this.passwordConfirmation) {
-        axios.post("http://localhost:5000/api/posts/register", newUser);
+        axios.post("http://localhost:5000/api/register", newUser);
         toast.success("Account created successfully", {
           toastClassName: "my-toast",
           position: "top-left",

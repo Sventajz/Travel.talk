@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
       },
       createdAt: {
         type: Date,
-        default: Date.now // Default value will set the current date and time
+        default: Date.now
       }
     }
   ]

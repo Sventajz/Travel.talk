@@ -4,9 +4,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 mongoose
-  .connect(process.env.MONGO_API, {
+  .connect('mongodb+srv://SvenTajz:CLONErepublic2@piprojekt.mnzp0np.mongodb.net/?retryWrites=true&w=majority&appName=piProjekt', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    dbName: 'vue_express'
   })
   .then(() => {
     console.log("Connected to MongoDB");

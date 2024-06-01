@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://localhost:5000/api/posts";
+const url = "http://localhost:5000/api/";
 class PostService {
   //get post
   static getPosts() {
@@ -8,10 +8,12 @@ class PostService {
       try {
         const res = await axios.get(url);
         const data = res.data;
-
+        console.log(data)
         resolve(
           data.map((post) => ({
-            ...post,
+            text: post.text,
+            userName: post.userName,
+            location: post.place,
             createdAt: new Date(post.createdAt),
           }))
         );

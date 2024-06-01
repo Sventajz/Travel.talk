@@ -59,7 +59,7 @@ export default {
         password: this.password,
       };
       console.log(newUser);
-      axios.post("http://localhost:5000/api/posts/login", newUser).then(
+      axios.post("http://localhost:5000/api/login", newUser).then(
         (res) => {
           console.log("this is response for login", res);
           this.error = res.data.message;
