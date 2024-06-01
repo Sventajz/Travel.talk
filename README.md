@@ -1,6 +1,6 @@
 # TravelTalk (in progress...)
-Travel blog project for my masters degree
-#Tech stack used to build the project:
+
+# Tech stack used to build the project:
 <ol>
 <li>NodeJS</li>
 <li>VueJS</li>
@@ -8,6 +8,7 @@ Travel blog project for my masters degree
 <li>ExpressJS</li>
 <li>Bcrypt</li>
 <li>Axios</li>
+  
 </ol>
 
 ## API-s used:
@@ -20,10 +21,11 @@ The idea of the app is for users to share their travels with other users. Sort o
 Every user has their own map with map markers signifying where they've been. All the posts and locations are stored in a database and the Google geocode api converts the
 location strings to coordinates so that it can be added to the map.
 #Safety
-All the users and passwords are saved in a database. THe passwords are stored with an encrypted values so there is no security risk of leaking passwords.
+All the users and passwords are saved in a database. The passwords are stored with an encrypted values so there is no security risk of leaking passwords.
 
 ## Planned features:
 - Complete UI redesign (currently in progress)
 - Create a ML prediction model for the app (COMPLETED)
+- Create a personalized AI and RAG powered travel assistant. (Currently in progress)
 -New features such as: comments, uploading images etc.
 - further rendering and fetching optimizations
