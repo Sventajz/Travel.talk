@@ -111,6 +111,7 @@ export default {
       this.componentKey += 1;
     },
     async deletePost(id) {
+      console.log('post id:', id)
       await PostService.deletePost(id);
       this.posts = await PostService.getPosts();
       this.componentKey += 1;

@@ -8,13 +8,14 @@ class PostService {
       try {
         const res = await axios.get(url);
         const data = res.data;
-        console.log(data)
+        console.log(data[0].post._id)
         resolve(
-          data.map((post) => ({
-            text: post.text,
-            userName: post.userName,
-            location: post.place,
-            createdAt: new Date(post.createdAt),
+          data.map((item) => ({
+            text: item.post.text,
+            userName: item.userName,
+            place: item.post.place,
+            _id: item.post._id,
+            createdAt: new Date(item.post.createdAt)
           }))
         );
       } catch (err) {
@@ -33,8 +34,9 @@ class PostService {
   }
 
   // delete post
-  static deletePost(id) {
-    return axios.delete(`${url}/${id}`);
+  static deletePost(postID) {
+    console.log(postID)
+    return axios.delete(`${url}/${postID}`);
   }
 }
 export default PostService;
