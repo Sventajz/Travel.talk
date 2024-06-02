@@ -6,7 +6,7 @@ import { computed, onMounted, ref, watch } from "vue";
 //import { geoCode } from '../geocode';
 import { useGeolocation } from "../useGeolocation";
 const GOOGLE_MAPS_API_KEY = process.env.VUE_APP_GOOGLE_API;
-const url = "http://localhost:5000/api/posts";
+const url = "http://localhost:5000/api/";
 
 export default {
   setup() {
@@ -49,7 +49,7 @@ export default {
         const response = await axios.get(url);
         let array = [];
         for (let i = 0; i < Object.keys(response.data).length; i++) {
-          array.push(response.data[i].place);
+          array.push(response.data[i].post.place);
         }
         return array;
       } catch (err) {
