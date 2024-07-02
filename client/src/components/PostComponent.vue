@@ -3,6 +3,7 @@
   <div class="postcont">
     <div class="mapcont">
       <MapComponent v-bind:key="componentKey"></MapComponent>
+      <ChatComponent />
     </div>
     <div class="container">
       <div class="create-post">
@@ -76,6 +77,7 @@
 import PostService from "../PostService.js";
 import { geoCode } from "../geocode";
 import MapComponent from "./MapComponent.vue";
+import ChatComponent from "./ChatComponent.vue";
 
 export default {
   name: "PostComponent",
@@ -111,7 +113,7 @@ export default {
       this.componentKey += 1;
     },
     async deletePost(id) {
-      console.log('post id:', id)
+      console.log("post id:", id);
       await PostService.deletePost(id);
       this.posts = await PostService.getPosts();
       this.componentKey += 1;
@@ -120,7 +122,7 @@ export default {
       this.componentKey += 1;
     },
   },
-  components: { MapComponent },
+  components: { MapComponent, ChatComponent },
 };
 </script>
 
