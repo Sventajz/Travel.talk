@@ -104,11 +104,11 @@ export default {
 
 .chat-container {
   position: fixed;
-  bottom: 50px; /* Adjust this value based on the height of the toggle button */
+  bottom: 50px;
   left: 0;
   z-index: 2;
-  width: 300px;
-  height: 400px;
+  width: 350px;
+  height: 500px;
   border: 1px solid #ccc;
   background-color: white;
   display: flex;
