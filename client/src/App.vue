@@ -62,7 +62,7 @@ body {
 }
 .router-wrapper {
   height: 100%;
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }

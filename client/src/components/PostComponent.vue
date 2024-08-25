@@ -133,7 +133,7 @@ export default {
   grid-template-columns: 65% 35%;
   align-items: center;
   box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(34, 34, 34, 0.877);
-  height: 88%;
+  height: 100%;
   width: 100%;
   background-color: var(--backgroundClr);
 }
@@ -144,10 +144,8 @@ export default {
   height: 25px;
 }
 .mapcont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
+  width: 100%;
 }
 .text {
   text-align: justify;
